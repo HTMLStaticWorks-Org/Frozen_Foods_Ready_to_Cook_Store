@@ -1,0 +1,2 @@
+# Frozen_Foods_Ready_to_Cook_Store
+Automated website repository for Frozen_Foods_Ready_to_Cook_Store
