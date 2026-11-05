@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | FROZIO</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Let's make your next meal easier. Have a question about our frozen food range, product availability or delivery? Send us a product or order enquiry.">
+  <meta property="og:title" content="Contact | FROZIO">
+  <meta property="og:description" content="Have a question about our frozen food range, product availability or delivery? Send us an enquiry.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero-frozen-food.webp">
+
+  <!-- Google Fonts: Outfit (Headings) & DM Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Global Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       GLOBAL STICKY HEADER
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand-logo" aria-label="FROZIO Home">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
+            </svg>
+          </span>
+          <span class="brand-logo-text">
+            <span class="brand-logo-title">FROZIO</span>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link-item">Home</a></li>
+            <li><a href="home-2.html" class="nav-link-item">Home 2</a></li>
+            <li><a href="products.html" class="nav-link-item">Products</a></li>
+            <li><a href="storage-delivery.html" class="nav-link-item">Storage &amp; Delivery</a></li>
+            <li><a href="contact.html" class="nav-link-item active" aria-current="page">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="icon-action-btn" id="headerSearchToggleBtn" aria-expanded="false" aria-controls="headerSearchBar" aria-label="Toggle product search" title="Search Products">
+            <i class="bi bi-search"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" id="rtlToggleBtn" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout direction" title="Toggle RTL / LTR">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+
+          <button type="button" class="icon-action-btn" id="themeToggleBtn" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme" title="Toggle Dark / Light Mode">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" data-open-cart aria-label="Open Enquiry Cart" title="Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span class="cart-count-badge" id="cartCountBadge">0</span>
+          </button>
+
+          <a href="#orderEnquiryFormSection" class="btn-brand-primary header-cta-desktop">Order Enquiry</a>
+
+          <button type="button" class="hamburger-btn" id="mobileMenuOpenBtn" aria-expanded="false" aria-controls="mobileNavDrawer" aria-label="Open navigation menu">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-search-bar" id="headerSearchBar">
+      <div class="container">
+        <form class="header-search-form" id="headerSearchForm" role="search">
+          <label for="headerSearchInput" class="visually-hidden">Search frozen food products</label>
+          <input type="search" id="headerSearchInput" class="header-search-input" placeholder="Search samosas, parathas, green peas, chicken nuggets...">
+          <button type="submit" class="btn-brand-primary py-2 px-3">Search</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav-backdrop" id="sharedOverlayBackdrop"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <span class="fw-bold" style="font-family: var(--font-heading); color: var(--navy-primary);">STORE NAVIGATION</span>
+        <button type="button" class="drawer-close-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="mobile-drawer-tools">
+        <form class="mobile-drawer-search-form" data-drawer-search-form role="search">
+          <input type="search" class="mobile-drawer-search-input" placeholder="Search frozen foods..." aria-label="Search frozen food products">
+          <button type="submit" class="btn-brand-primary py-2 px-3" aria-label="Submit search"><i class="bi bi-search"></i></button>
+        </form>
+        <div class="mobile-drawer-actions-grid">
+          <button type="button" class="mobile-drawer-action-item" data-open-cart aria-label="Open Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span>Cart</span>
+            <span class="cart-count-badge">0</span>
+          </button>
+          <button type="button" class="mobile-drawer-action-item" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme">
+            <i class="bi bi-moon-stars"></i>
+            <span>Theme</span>
+          </button>
+          <button type="button" class="mobile-drawer-action-item" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+        </div>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html"><span>Home</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="home-2.html"><span>Home 2</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="products.html"><span>Products</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="storage-delivery.html"><span>Storage &amp; Delivery</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="contact.html" class="active"><span>Contact</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="#orderEnquiryFormSection"><span>Order Enquiry</span> <i class="bi bi-arrow-up-right-circle"></i></a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <p class="small mb-2 fw-semibold" style="color: var(--navy-primary);">FRESH CONVENIENCE. FROZEN PERFECTION.</p>
+      <a href="products.html" class="btn-brand-primary w-100">Explore Frozen Range</a>
+    </div>
+  </aside>
+
+  <!-- Enquiry Cart Slide-Over Drawer -->
+  <aside class="enquiry-cart-drawer" id="enquiryCartDrawer" aria-hidden="true" aria-label="Product Enquiry List">
+    <div class="cart-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-bag-check-fill" style="color: var(--mint-secondary); font-size: 1.2rem;"></i>
+        <h3>Product Enquiry List</h3>
+      </div>
+      <button type="button" class="drawer-close-btn" id="enquiryCartCloseBtn" aria-label="Close enquiry cart">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-body" id="enquiryCartBody"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-line">
+        <span class="text-muted small">Selected Quantity:</span>
+        <strong id="enquiryCartCount">0 Packs</strong>
+      </div>
+      <div class="cart-summary-line mb-2">
+        <span class="text-muted small">Estimated Sample Total:</span>
+        <strong id="enquiryCartTotal" style="font-size: 1.15rem; color: var(--navy-primary);">₹0</strong>
+      </div>
+      <p class="small text-muted mb-3" style="font-size: 0.75rem;">*Sample prices are for demonstration only. Submit an enquiry to confirm current store availability.</p>
+      <div class="d-grid gap-2">
+        <a href="contact.html?prefill=cart" id="sendEnquiryCartBtn" class="btn-brand-primary">SEND PRODUCT ENQUIRY</a>
+        <button type="button" id="clearEnquiryCartBtn" class="btn-brand-secondary py-2" style="font-size: 0.8rem;">Clear Enquiry List</button>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!-- ======================================================================
+         CONTACT PAGE HERO BANNER
+         ====================================================================== -->
+    <section class="page-hero-banner" aria-labelledby="contact-hero-heading">
+      <div class="container">
+        <span class="eyebrow-badge"><i class="bi bi-envelope-paper"></i> Customer &amp; Order Support</span>
+        <h1 id="contact-hero-heading">LET'S MAKE YOUR NEXT MEAL EASIER.</h1>
+        <p>
+          Have a question about our frozen food range, product availability or delivery? Send us an enquiry.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         CONTACT INFORMATION PLACEHOLDERS & ORDER ENQUIRY FORM
+         ====================================================================== -->
+    <section id="orderEnquiryFormSection" class="section-block section-bg-ice" aria-labelledby="enquiry-form-heading">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <!-- LEFT COLUMN: Editable Client Contact Placeholders -->
+          <div class="col-lg-5">
+            <div class="contact-info-card">
+              <span class="eyebrow-badge mb-3">Store Details (Editable Client Placeholders)</span>
+              <h2 class="text-white mb-3" style="font-size: 1.65rem;">GET IN TOUCH WITH OUR STORE.</h2>
+              <p class="small mb-4">
+                Reach out to check current stock across Snacks, Parathas, Vegetarian and Non-Vegetarian frozen items, or submit your order enquiry using the form.
+              </p>
+
+              <!-- 1. Business Phone Number Placeholder -->
+              <div class="contact-detail-item">
+                <div class="contact-detail-icon" aria-hidden="true"><i class="bi bi-telephone"></i></div>
+                <div>
+                  <h3 class="mb-1" style="font-size: 0.96rem; color: var(--lime-accent);">Business Phone Number</h3>
+                  <p class="mb-0 small text-white">[Client Placeholder: +91 XXXXX XXXXX]</p>
+                  <span class="small" style="color: rgba(255,255,255,0.65); font-size: 0.78rem;">Editable store contact phone number</span>
+                </div>
+              </div>
+
+              <!-- 2. Business Email Placeholder -->
+              <div class="contact-detail-item">
+                <div class="contact-detail-icon" aria-hidden="true"><i class="bi bi-envelope"></i></div>
+                <div>
+                  <h3 class="mb-1" style="font-size: 0.96rem; color: var(--lime-accent);">Business Email</h3>
+                  <p class="mb-0 small text-white">[Client Placeholder: enquiries@yourfrozenstore.example]</p>
+                  <span class="small" style="color: rgba(255,255,255,0.65); font-size: 0.78rem;">Editable store enquiry email address</span>
+                </div>
+              </div>
+
+              <!-- 3. Store Address Placeholder -->
+              <div class="contact-detail-item">
+                <div class="contact-detail-icon" aria-hidden="true"><i class="bi bi-geo-alt"></i></div>
+                <div>
+                  <h3 class="mb-1" style="font-size: 0.96rem; color: var(--lime-accent);">Store Address</h3>
+                  <p class="mb-0 small text-white">[Client Placeholder: Shop / Unit No., Street Name, Locality, City, State &ndash; PIN Code]</p>
+                  <span class="small" style="color: rgba(255,255,255,0.65); font-size: 0.78rem;">Editable retail store location</span>
+                </div>
+              </div>
+
+              <!-- 4. Operating Hours Placeholder -->
+              <div class="contact-detail-item border-bottom-0 pb-0">
+                <div class="contact-detail-icon" aria-hidden="true"><i class="bi bi-clock"></i></div>
+                <div>
+                  <h3 class="mb-1" style="font-size: 0.96rem; color: var(--lime-accent);">Operating Hours</h3>
+                  <p class="mb-0 small text-white">[Client Placeholder: Monday &ndash; Sunday: XX:XX AM to XX:XX PM]</p>
+                  <span class="small" style="color: rgba(255,255,255,0.65); font-size: 0.78rem;">Editable store operating hours</span>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-top" style="border-color: rgba(255,255,255,0.16) !important;">
+                <h3 class="mb-2" style="font-size: 0.92rem; color: var(--lime-accent); text-transform: uppercase; letter-spacing: 0.05em;">Connect on Social Media</h3>
+                <p class="small mb-3" style="color: rgba(255,255,255,0.75);">Follow us for new ready-to-cook launches, quick recipe ideas and store updates.</p>
+                <div class="contact-social-links mb-4">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Follow us on Instagram" title="Instagram">
+                    <i class="bi bi-instagram"></i>
+                  </a>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Follow us on Facebook" title="Facebook">
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                  <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Chat with us on WhatsApp" title="WhatsApp">
+                    <i class="bi bi-whatsapp"></i>
+                  </a>
+                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Subscribe on YouTube" title="YouTube">
+                    <i class="bi bi-youtube"></i>
+                  </a>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Follow us on X (Twitter)" title="X (Twitter)">
+                    <i class="bi bi-twitter-x"></i>
+                  </a>
+                </div>
+                <a href="storage-delivery.html" class="btn-brand-outline-white w-100">
+                  <i class="bi bi-snow2"></i> View Storage &amp; Delivery Guide
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Functional Contact / Order Enquiry Form -->
+          <div class="col-lg-7">
+            <div class="enquiry-form-card">
+              <span class="eyebrow-badge-mint">Product &amp; Order Enquiry Form</span>
+              <h2 id="enquiry-form-heading" class="mb-2" style="font-size: 1.75rem;">SEND YOUR ENQUIRY</h2>
+              <p class="small mb-4">
+                Complete the fields below to enquire about product availability, pack quantities or local delivery options. Fields marked with <span class="text-danger">*</span> are required.
+              </p>
+
+              <!-- Auto-Prefill Notice Banner (shown when arriving with items in Enquiry Cart) -->
+              <div id="cartPrefillNotice" class="p-3 mb-4 rounded border" style="background-color: var(--bg-soft-mint); border-color: var(--mint-secondary) !important;" hidden>
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                  <div class="small" style="color: var(--navy-primary);">
+                    <i class="bi bi-check2-circle me-1 fw-bold"></i>
+                    <strong>Enquiry Cart Loaded:</strong> Your selected products and quantities have been prefilled below.
+                  </div>
+                  <button type="button" class="btn-brand-secondary py-1 px-2" style="font-size: 0.75rem;" data-open-cart>
+                    Edit Cart Items
+                  </button>
+                </div>
+              </div>
+
+              <!-- Demo Submission Confirmation Panel -->
+              <div id="enquirySuccessConfirmation" class="p-4 mb-4 rounded-3 border" style="background-color: var(--bg-soft-mint); border-color: var(--mint-secondary) !important;" role="status" aria-live="polite" hidden>
+                <div class="d-flex align-items-start gap-3">
+                  <div class="fs-3" style="color: var(--veg-green);"><i class="bi bi-check-circle-fill"></i></div>
+                  <div class="w-100">
+                    <h3 class="mb-1" style="font-size: 1.2rem; color: var(--navy-primary);">Demo Enquiry Confirmation Received!</h3>
+                    <p class="small mb-2" style="color: var(--text-main);">
+                      Thank you for testing the order enquiry workflow. <strong>Please note:</strong> This website is a frontend-only demonstration prototype—your submission is displayed here for preview purposes and does not automatically transmit live orders or confirm stock with the business.
+                    </p>
+                    <div id="submittedEnquirySummary"></div>
+                  </div>
+                </div>
+              </div>
+
+              <form id="orderEnquiryForm" novalidate>
+                <div class="row g-3">
+                  <!-- 1. Full Name -->
+                  <div class="col-md-6">
+                    <label for="fullName" class="form-label-brand">1. Full Name <span class="text-danger">*</span></label>
+                    <input type="text" id="fullName" name="fullName" class="form-control-brand" placeholder="Enter your full name" required autocomplete="name">
+                    <div class="field-error-msg">Please enter your full name (at least 2 characters).</div>
+                  </div>
+
+                  <!-- 2. Phone Number -->
+                  <div class="col-md-6">
+                    <label for="phoneNumber" class="form-label-brand">2. Phone Number <span class="text-danger">*</span></label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control-brand" placeholder="e.g. +91 98765 43210" required autocomplete="tel">
+                    <div class="field-error-msg">Please enter a valid 10-digit phone number.</div>
+                  </div>
+
+                  <!-- 3. Email Address -->
+                  <div class="col-md-6">
+                    <label for="emailAddress" class="form-label-brand">3. Email Address <span class="text-danger">*</span></label>
+                    <input type="email" id="emailAddress" name="emailAddress" class="form-control-brand" placeholder="you@example.com" required autocomplete="email">
+                    <div class="field-error-msg">Please enter a valid email address.</div>
+                  </div>
+
+                  <!-- 4. Enquiry Type -->
+                  <div class="col-md-6">
+                    <label for="enquiryType" class="form-label-brand">4. Enquiry Type <span class="text-danger">*</span></label>
+                    <select id="enquiryType" name="enquiryType" class="form-control-brand" required>
+                      <option value="">Select Enquiry Type</option>
+                      <option value="General Enquiry">General Enquiry</option>
+                      <option value="Product Enquiry">Product Enquiry</option>
+                      <option value="Bulk Order">Bulk Order</option>
+                      <option value="Delivery Enquiry">Delivery Enquiry</option>
+                      <option value="Storage Information">Storage Information</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <div class="field-error-msg">Please select an enquiry type.</div>
+                  </div>
+
+                  <!-- 5. Product Category -->
+                  <div class="col-md-6">
+                    <label for="productCategory" class="form-label-brand">5. Product Category <span class="text-danger">*</span></label>
+                    <select id="productCategory" name="productCategory" class="form-control-brand" required>
+                      <option value="">Select Product Category</option>
+                      <option value="Snacks">Snacks</option>
+                      <option value="Parathas">Parathas</option>
+                      <option value="Vegetarian">Vegetarian</option>
+                      <option value="Non-Vegetarian">Non-Vegetarian</option>
+                      <option value="Multiple Categories">Multiple Categories</option>
+                    </select>
+                    <div class="field-error-msg">Please select a product category.</div>
+                  </div>
+
+                  <!-- 7. Quantity -->
+                  <div class="col-md-6">
+                    <label for="productQuantity" class="form-label-brand">7. Quantity <span class="text-danger">*</span></label>
+                    <input type="text" id="productQuantity" name="productQuantity" class="form-control-brand" placeholder="e.g. 4 Packs / 2 kg" required>
+                    <div class="field-error-msg">Please specify the desired pack quantity.</div>
+                  </div>
+
+                  <!-- 6. Interested Products -->
+                  <div class="col-12">
+                    <label for="interestedProducts" class="form-label-brand">6. Interested Products <span class="text-danger">*</span></label>
+                    <input type="text" id="interestedProducts" name="interestedProducts" class="form-control-brand" placeholder="e.g. Vegetable Samosa, Aloo Paratha, Frozen Green Peas" required>
+                    <div class="field-error-msg">Please list the frozen products you are interested in.</div>
+                  </div>
+
+                  <!-- 8. Delivery Location -->
+                  <div class="col-12">
+                    <label for="deliveryLocation" class="form-label-brand">8. Delivery Location <span class="text-danger">*</span></label>
+                    <input type="text" id="deliveryLocation" name="deliveryLocation" class="form-control-brand" placeholder="Enter your neighbourhood, city or PIN code" required>
+                    <div class="field-error-msg">Please enter your delivery area or locality.</div>
+                  </div>
+
+                  <!-- 9. Message -->
+                  <div class="col-12">
+                    <label for="enquiryMessage" class="form-label-brand">9. Message <span class="text-danger">*</span></label>
+                    <textarea id="enquiryMessage" name="enquiryMessage" rows="4" class="form-control-brand" placeholder="Share any questions regarding product availability, pack sizes, storage or preferred handover time..." required></textarea>
+                    <div class="field-error-msg">Please enter your enquiry message (at least 8 characters).</div>
+                  </div>
+
+                  <!-- Prototype Disclaimer & Submit CTA -->
+                  <div class="col-12">
+                    <div class="p-3 rounded border bg-light small text-muted mb-3">
+                      <i class="bi bi-info-circle me-1"></i>
+                      <strong>Frontend Prototype Notice:</strong> Submitting this form displays an interactive demo confirmation on screen. It does not process online payments or transmit live orders to a backend server.
+                    </div>
+                    <button type="submit" class="btn-brand-primary w-100 py-3">
+                      SUBMIT ENQUIRY <i class="bi bi-send ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         STORE LOCATION INTERACTIVE MAP SECTION
+         ====================================================================== -->
+    <section id="storeLocationMapSection" class="section-block section-bg-mint" aria-labelledby="store-map-heading">
+      <div class="container">
+        <div class="contact-map-card">
+          <div class="contact-map-header">
+            <div>
+              <span class="eyebrow-badge mb-2"><i class="bi bi-geo-alt-fill"></i> Visit Our Retail Store</span>
+              <h2 id="store-map-heading" class="mb-1" style="font-size: 1.6rem;">FIND US ON THE MAP</h2>
+              <p class="small mb-0">
+                Walk in to explore our full range of frozen snacks, parathas, vegetarian and non-vegetarian packs stored in temperature-monitored retail freezers.
+              </p>
+            </div>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-brand-primary">
+              <i class="bi bi-compass"></i> Open in Google Maps
+            </a>
+          </div>
+          <div class="contact-map-frame">
+            <iframe
+              title="Frozen Foods & Ready-to-Cook Store Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.843984049967!2d80.2405!3d13.0475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526650e0b6c595%3A0x4f74ddbff946af6b!2sT.%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       GLOBAL FOOTER
+       ======================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="brand-logo mb-3">
+            <span class="brand-logo-mark" style="background-color: var(--mint-secondary); color: #FFFFFF;" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
+              </svg>
+            </span>
+            <span class="brand-logo-text">
+              <span class="brand-logo-title text-white">FROZIO</span>
+            </span>
+          </a>
+          <p class="small mb-3" style="color: rgba(255,255,255,0.8); max-width: 340px;">
+            Delicious meals, made easier with quality frozen favourites. Explore our retail collection of crispy snacks, flaky parathas, flash-frozen vegetables and non-vegetarian essentials.
+          </p>
+          <div class="contact-social-links" aria-label="Social Media Links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook" title="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="WhatsApp" title="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="YouTube" title="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="X (Twitter)" title="X (Twitter)">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="storage-delivery.html">Storage &amp; Delivery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-6">
+          <h3 class="footer-title">Product Categories</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=Snacks">Frozen Snacks</a></li>
+            <li><a href="products.html?category=Parathas">Parathas</a></li>
+            <li><a href="products.html?category=Vegetarian">Vegetarian</a></li>
+            <li><a href="products.html?category=Non-Vegetarian">Non-Vegetarian</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">Customer Support</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html?prefill=cart">Product Enquiries</a></li>
+            <li><a href="storage-delivery.html#delivery-info">Delivery Information</a></li>
+            <li><a href="storage-delivery.html#storage-guidance">Storage Guidance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 FROZIO. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="storage-delivery.html#faq-section" class="text-white-50">Privacy Policy (Placeholder)</a>
+          <a href="storage-delivery.html#faq-section" class="text-white-50">Terms of Use (Placeholder)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

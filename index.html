@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | FROZIO</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Fresh Convenience. Frozen Perfection. Explore delicious frozen snacks, flaky parathas, flash-frozen vegetables and ready-to-cook non-vegetarian favourites.">
+  <meta property="og:title" content="Home | FROZIO">
+  <meta property="og:description" content="Delicious meals, made easier with quality frozen favourites. Browse snacks, parathas, vegetarian and non-vegetarian ready-to-cook essentials.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero-frozen-food.webp">
+
+  <!-- Google Fonts: Outfit (Headings) & DM Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Global Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       GLOBAL STICKY HEADER
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <!-- LEFT: Brand Logo & Wordmark -->
+        <a href="index.html" class="brand-logo" aria-label="FROZIO Home">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
+            </svg>
+          </span>
+          <span class="brand-logo-text">
+            <span class="brand-logo-title">FROZIO</span>
+          </span>
+        </a>
+
+        <!-- CENTER: Primary Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link-item active" aria-current="page">Home</a></li>
+            <li><a href="home-2.html" class="nav-link-item">Home 2</a></li>
+            <li><a href="products.html" class="nav-link-item">Products</a></li>
+            <li><a href="storage-delivery.html" class="nav-link-item">Storage &amp; Delivery</a></li>
+            <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- RIGHT: Search, RTL Toggle, Theme Toggle, Enquiry Cart & Order Enquiry CTA -->
+        <div class="header-actions">
+          <button type="button" class="icon-action-btn" id="headerSearchToggleBtn" aria-expanded="false" aria-controls="headerSearchBar" aria-label="Toggle product search" title="Search Products">
+            <i class="bi bi-search"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" id="rtlToggleBtn" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout direction" title="Toggle RTL / LTR">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+
+          <button type="button" class="icon-action-btn" id="themeToggleBtn" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme" title="Toggle Dark / Light Mode">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" data-open-cart aria-label="Open Enquiry Cart" title="Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span class="cart-count-badge" id="cartCountBadge">0</span>
+          </button>
+
+          <a href="contact.html" class="btn-brand-primary header-cta-desktop">Order Enquiry</a>
+
+          <button type="button" class="hamburger-btn" id="mobileMenuOpenBtn" aria-expanded="false" aria-controls="mobileNavDrawer" aria-label="Open navigation menu">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapsible Quick Search Bar -->
+    <div class="header-search-bar" id="headerSearchBar">
+      <div class="container">
+        <form class="header-search-form" id="headerSearchForm" role="search">
+          <label for="headerSearchInput" class="visually-hidden">Search frozen food products</label>
+          <input type="search" id="headerSearchInput" class="header-search-input" placeholder="Search samosas, parathas, green peas, chicken nuggets...">
+          <button type="submit" class="btn-brand-primary py-2 px-3">Search</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Shared Backdrop for Mobile Menu & Enquiry Cart Drawer -->
+  <div class="mobile-nav-backdrop" id="sharedOverlayBackdrop"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <span class="fw-bold" style="font-family: var(--font-heading); color: var(--navy-primary);">STORE NAVIGATION</span>
+        <button type="button" class="drawer-close-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="mobile-drawer-tools">
+        <form class="mobile-drawer-search-form" data-drawer-search-form role="search">
+          <input type="search" class="mobile-drawer-search-input" placeholder="Search frozen foods..." aria-label="Search frozen food products">
+          <button type="submit" class="btn-brand-primary py-2 px-3" aria-label="Submit search"><i class="bi bi-search"></i></button>
+        </form>
+        <div class="mobile-drawer-actions-grid">
+          <button type="button" class="mobile-drawer-action-item" data-open-cart aria-label="Open Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span>Cart</span>
+            <span class="cart-count-badge">0</span>
+          </button>
+          <button type="button" class="mobile-drawer-action-item" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme">
+            <i class="bi bi-moon-stars"></i>
+            <span>Theme</span>
+          </button>
+          <button type="button" class="mobile-drawer-action-item" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+        </div>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="active"><span>Home</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="home-2.html"><span>Home 2</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="products.html"><span>Products</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="storage-delivery.html"><span>Storage &amp; Delivery</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="contact.html"><span>Contact</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="contact.html"><span>Order Enquiry</span> <i class="bi bi-arrow-up-right-circle"></i></a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <p class="small mb-2 fw-semibold" style="color: var(--navy-primary);">FRESH CONVENIENCE. FROZEN PERFECTION.</p>
+      <a href="products.html" class="btn-brand-primary w-100">Explore Frozen Range</a>
+    </div>
+  </aside>
+
+  <!-- Enquiry Cart Slide-Over Drawer -->
+  <aside class="enquiry-cart-drawer" id="enquiryCartDrawer" aria-hidden="true" aria-label="Product Enquiry List">
+    <div class="cart-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-bag-check-fill" style="color: var(--mint-secondary); font-size: 1.2rem;"></i>
+        <h3>Product Enquiry List</h3>
+      </div>
+      <button type="button" class="drawer-close-btn" id="enquiryCartCloseBtn" aria-label="Close enquiry cart">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-body" id="enquiryCartBody"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-line">
+        <span class="text-muted small">Selected Quantity:</span>
+        <strong id="enquiryCartCount">0 Packs</strong>
+      </div>
+      <div class="cart-summary-line mb-2">
+        <span class="text-muted small">Estimated Sample Total:</span>
+        <strong id="enquiryCartTotal" style="font-size: 1.15rem; color: var(--navy-primary);">₹0</strong>
+      </div>
+      <p class="small text-muted mb-3" style="font-size: 0.75rem;">*Sample prices are for demonstration only. Submit an enquiry to confirm current store availability.</p>
+      <div class="d-grid gap-2">
+        <a href="contact.html?prefill=cart" id="sendEnquiryCartBtn" class="btn-brand-primary">SEND PRODUCT ENQUIRY</a>
+        <button type="button" id="clearEnquiryCartBtn" class="btn-brand-secondary py-2" style="font-size: 0.8rem;">Clear Enquiry List</button>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!-- ======================================================================
+         SECTION 1 – PREMIUM HERO
+         ====================================================================== -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-tagline-bar">
+              <span class="hero-tagline-dot" aria-hidden="true"></span>
+              <span class="hero-tagline-text">FRESH CONVENIENCE. FROZEN PERFECTION.</span>
+            </div>
+
+            <h1 id="hero-heading" class="hero-title">
+              GOOD FOOD. LESS PREP. <span>MORE TIME.</span>
+            </h1>
+
+            <p class="hero-lead">
+              Discover delicious frozen favourites and ready-to-cook meals designed to make everyday eating easier. Delicious meals, made easier with quality frozen favourites.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="products.html" class="btn-brand-primary">
+                EXPLORE PRODUCTS <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="#quick-meal-picks" class="btn-brand-secondary">
+                DISCOVER QUICK MEALS
+              </a>
+            </div>
+
+            <div class="hero-trust-strip" role="list" aria-label="Brand Highlights">
+              <div class="hero-trust-item" role="listitem">
+                <span class="hero-trust-icon" aria-hidden="true"><i class="bi bi-Snow2"></i><i class="bi bi-snow2"></i></span>
+                <span>Freezer-Ready Packs</span>
+              </div>
+              <div class="hero-trust-item" role="listitem">
+                <span class="hero-trust-icon" aria-hidden="true"><i class="bi bi-clock-history"></i></span>
+                <span>Quick Pan &amp; Air-Fry Prep</span>
+              </div>
+              <div class="hero-trust-item" role="listitem">
+                <span class="hero-trust-icon" aria-hidden="true"><i class="bi bi-grid-3x3-gap"></i></span>
+                <span>Veg &amp; Non-Veg Variety</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual Composition + 3 HTML Overlay Highlights -->
+          <div class="hero-visual-wrapper">
+            <div class="hero-image-frame">
+              <img src="assets/images/hero-frozen-food.webp" alt="Assortment of premium frozen snacks, flaky parathas, flash-frozen green peas, sweet corn and ready-to-cook chicken favourites" width="900" height="675">
+            </div>
+
+            <!-- HTML Overlay Highlight 1 -->
+            <div class="hero-overlay-pill hero-pill-1">
+              <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
+              <span>Easy Meal Preparation</span>
+            </div>
+
+            <!-- HTML Overlay Highlight 2 -->
+            <div class="hero-overlay-pill hero-pill-2">
+              <i class="bi bi-stars" aria-hidden="true"></i>
+              <span>Everyday Frozen Favourites</span>
+            </div>
+
+            <!-- HTML Overlay Highlight 3 -->
+            <div class="hero-overlay-pill hero-pill-3">
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span>Convenient Food Choices</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 2 – QUICK MEAL PICKS (ASYMMETRICAL EDITORIAL LAYOUT)
+         ====================================================================== -->
+    <section id="quick-meal-picks" class="section-block section-bg-ice reveal-on-scroll" aria-labelledby="quick-meals-heading">
+      <div class="container">
+        <div class="section-header-split">
+          <div>
+            <span class="eyebrow-badge"><i class="bi bi-stopwatch"></i> Ready When You Are</span>
+            <h2 id="quick-meals-heading" class="mb-2">YOUR NEXT QUICK MEAL STARTS HERE.</h2>
+            <p class="mb-0" style="max-width: 620px;">
+              Explore convenient ready-to-cook favourites for busy mornings, quick lunches and relaxed evenings.
+            </p>
+          </div>
+          <a href="products.html" class="btn-brand-secondary">View Full Catalogue</a>
+        </div>
+
+        <div class="quick-meals-editorial-grid">
+          <!-- Selection 1: Crispy Snack Selection -->
+          <article class="quick-pick-card">
+            <div class="quick-pick-media">
+              <img src="assets/images/quick-meals.webp" alt="Crispy Snack Selection with golden spring rolls, samosas and potato wedges" loading="lazy" width="600" height="375">
+              <span class="prep-convenience-label"><i class="bi bi-fire me-1"></i>Fry or Air-Fry Ready</span>
+            </div>
+            <div class="quick-pick-body">
+              <div>
+                <span class="eyebrow-badge-mint mb-2">Snacks</span>
+                <h3 class="quick-pick-title">Crispy Snack Selection</h3>
+                <p class="quick-pick-desc">
+                  Keep evening cravings and impromptu hostings effortless with golden vegetable samosas, spring rolls, cheese balls and seasoned potato wedges straight from your freezer.
+                </p>
+              </div>
+              <a href="products.html?category=Snacks" class="quick-pick-link">
+                Explore Snacks <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Selection 2: Paratha Meal Picks -->
+          <article class="quick-pick-card">
+            <div class="quick-pick-media">
+              <img src="assets/images/aloo-paratha.webp" alt="Paratha Meal Picks featuring warm stuffed aloo paratha on a plate" loading="lazy" width="600" height="375">
+              <span class="prep-convenience-label"><i class="bi bi-clock me-1"></i>Pan-Heat in Minutes</span>
+            </div>
+            <div class="quick-pick-body">
+              <div>
+                <span class="eyebrow-badge-mint mb-2">Parathas</span>
+                <h3 class="quick-pick-title">Paratha Meal Picks</h3>
+                <p class="quick-pick-desc">
+                  Skip dough kneading on busy mornings with flaky Malabar parottas, hearty Aloo parathas and wholesome whole wheat flatbreads.
+                </p>
+              </div>
+              <a href="products.html?category=Parathas" class="quick-pick-link">
+                Explore Parathas <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Selection 3: Veggie Quick Bites -->
+          <article class="quick-pick-card">
+            <div class="quick-pick-media">
+              <img src="assets/images/green-peas.webp" alt="Veggie Quick Bites with flash-frozen green peas and vegetables" loading="lazy" width="600" height="375">
+              <span class="prep-convenience-label"><i class="bi bi-check2-all me-1"></i>Pre-Cleaned &amp; Prepped</span>
+            </div>
+            <div class="quick-pick-body">
+              <div>
+                <span class="eyebrow-badge-mint mb-2">Vegetarian</span>
+                <h3 class="quick-pick-title">Veggie Quick Bites</h3>
+                <p class="quick-pick-desc">
+                  Pre-shelled green peas, sweet corn kernels, broccoli florets and crisp vegetable cutlets ready for everyday curries, stir-fries and snacks.
+                </p>
+              </div>
+              <a href="products.html?category=Vegetarian" class="quick-pick-link">
+                Explore Vegetarian <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Selection 4: Non-Veg Favourites -->
+          <article class="quick-pick-card">
+            <div class="quick-pick-media">
+              <img src="assets/images/chicken-kebab.webp" alt="Non-Veg Favourites featuring spiced chicken seekh kebabs and golden strips" loading="lazy" width="600" height="375">
+              <span class="prep-convenience-label"><i class="bi bi-award me-1"></i>Pan-Sear, Grill or Bake</span>
+            </div>
+            <div class="quick-pick-body">
+              <div>
+                <span class="eyebrow-badge-mint mb-2">Non-Vegetarian</span>
+                <h3 class="quick-pick-title">Non-Veg Favourites</h3>
+                <p class="quick-pick-desc">
+                  From spiced chicken kebabs, crispy breast strips and breakfast sausages to cleaned fish fillets and prawns—portioned for hassle-free home cooking.
+                </p>
+              </div>
+              <a href="products.html?category=Non-Vegetarian" class="quick-pick-link">
+                Explore Non-Veg <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3 – SHOP BY CATEGORY
+         ====================================================================== -->
+    <section class="section-block section-bg-mint reveal-on-scroll" aria-labelledby="shop-category-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto" style="max-width: 660px;">
+          <span class="eyebrow-badge"><i class="bi bi-grid-fill"></i> Organized Retail Range</span>
+          <h2 id="shop-category-heading">FIND YOUR FROZEN FAVOURITES.</h2>
+          <p class="mb-0">
+            Browse our four core frozen food departments—clearly organized so you can stock your home freezer with confidence.
+          </p>
+        </div>
+
+        <div class="category-showcase-grid">
+          <!-- Category 1: Frozen Snacks -->
+          <article class="category-showcase-card">
+            <div class="category-showcase-img">
+              <img src="assets/images/frozen-snacks.webp" alt="Frozen Snacks category featuring golden samosas, spring rolls and potato wedges" loading="lazy" width="600" height="450">
+              <span class="category-count-pill">5 Sample Products</span>
+            </div>
+            <div class="category-showcase-body">
+              <div>
+                <h3>Frozen Snacks</h3>
+                <p class="small">Crispy samosas, spring rolls, chicken nuggets, cheese balls and seasoned potato wedges for effortless snacking.</p>
+              </div>
+              <a href="products.html?category=Snacks" class="btn-brand-primary w-100 mt-2">
+                Explore Products <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Category 2: Frozen Parathas -->
+          <article class="category-showcase-card">
+            <div class="category-showcase-img">
+              <img src="assets/images/frozen-parathas.webp" alt="Frozen Parathas category featuring flaky layered flatbreads" loading="lazy" width="600" height="450">
+              <span class="category-count-pill">5 Sample Products</span>
+            </div>
+            <div class="category-showcase-body">
+              <div>
+                <h3>Frozen Parathas</h3>
+                <p class="small">Flaky Malabar parottas, stuffed Aloo and Mixed Veg parathas, plus homestyle plain and whole wheat flatbreads.</p>
+              </div>
+              <a href="products.html?category=Parathas" class="btn-brand-primary w-100 mt-2">
+                Explore Products <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Category 3: Vegetarian -->
+          <article class="category-showcase-card">
+            <div class="category-showcase-img">
+              <img src="assets/images/frozen-vegetables.webp" alt="Vegetarian category featuring flash-frozen green peas, sweet corn and broccoli" loading="lazy" width="600" height="450">
+              <span class="category-count-pill">5 Sample Products</span>
+            </div>
+            <div class="category-showcase-body">
+              <div>
+                <h3>Vegetarian</h3>
+                <p class="small">Flash-frozen garden green peas, sweet corn, mixed vegetables, broccoli florets and crumb-coated veg cutlets.</p>
+              </div>
+              <a href="products.html?category=Vegetarian" class="btn-brand-primary w-100 mt-2">
+                Explore Products <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Category 4: Non-Vegetarian -->
+          <article class="category-showcase-card">
+            <div class="category-showcase-img">
+              <img src="assets/images/frozen-nonveg.webp" alt="Non-Vegetarian category featuring chicken kebabs, strips, fish fillets and prawns" loading="lazy" width="600" height="450">
+              <span class="category-count-pill">5 Sample Products</span>
+            </div>
+            <div class="category-showcase-body">
+              <div>
+                <h3>Non-Vegetarian</h3>
+                <p class="small">Ready-to-cook chicken seekh kebabs, crispy strips, sausages, boneless fish fillets and cleaned prawns.</p>
+              </div>
+              <a href="products.html?category=Non-Vegetarian" class="btn-brand-primary w-100 mt-2">
+                Explore Products <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 4 – FEATURED PRODUCTS
+         ====================================================================== -->
+    <section class="section-block section-bg-ice reveal-on-scroll" aria-labelledby="featured-products-heading">
+      <div class="container">
+        <div class="section-header-split">
+          <div>
+            <span class="eyebrow-badge"><i class="bi bi-bookmark-star-fill"></i> Customer Picks</span>
+            <h2 id="featured-products-heading" class="mb-2">EVERYDAY FAVOURITES, READY WHEN YOU ARE.</h2>
+            <p class="mb-0" style="max-width: 640px;">
+              Add products directly to your enquiry list to request pack availability and order assistance. All prices shown in INR (₹) are sample demo prices.
+            </p>
+          </div>
+          <a href="products.html" class="btn-brand-primary">View All 20 Products</a>
+        </div>
+
+        <!-- Populated by main.js and pre-rendered for instant SEO/accessibility -->
+        <div class="product-grid product-grid-3" id="homeFeaturedProductsGrid">
+          <!-- 1. Vegetable Samosa -->
+          <article class="product-card" data-product-id="snk-01" data-category="Snacks">
+            <div class="product-card-media">
+              <img src="assets/images/frozen-samosa.webp" alt="Vegetable Samosa - Snacks (400g 10 Pcs)" loading="lazy" width="600" height="450">
+              <span class="product-category-tag">Snacks</span>
+              <span class="diet-indicator is-veg"><span class="diet-dot"></span>Veg</span>
+            </div>
+            <div class="product-card-body">
+              <div>
+                <h3 class="product-card-title">Vegetable Samosa</h3>
+                <p class="product-card-desc">Crispy triangular pastry pockets filled with seasoned potatoes, green peas and aromatic kitchen spices.</p>
+              </div>
+              <div>
+                <div class="product-meta-row">
+                  <span class="product-pack-size"><i class="bi bi-box-seam me-1"></i>400g (10 Pcs)</span>
+                  <div class="product-price-wrap">
+                    <span class="product-price">₹145</span>
+                    <span class="demo-price-tag">Sample Price</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-brand-primary btn-add-enquiry" data-add-enquiry="snk-01">
+                  <i class="bi bi-plus-circle"></i> Add to Enquiry
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Chicken Nuggets -->
+          <article class="product-card" data-product-id="snk-02" data-category="Snacks">
+            <div class="product-card-media">
+              <img src="assets/images/chicken-nuggets.webp" alt="Chicken Nuggets - Snacks (450g 18 Pcs)" loading="lazy" width="600" height="450">
+              <span class="product-category-tag">Snacks</span>
+              <span class="diet-indicator is-nonveg"><span class="diet-dot"></span>Non-Veg</span>
+            </div>
+            <div class="product-card-body">
+              <div>
+                <h3 class="product-card-title">Chicken Nuggets</h3>
+                <p class="product-card-desc">Tender minced chicken bites coated in a golden, crunchy breadcrumb batter for quick evening snacks.</p>
+              </div>
+              <div>
+                <div class="product-meta-row">
+                  <span class="product-pack-size"><i class="bi bi-box-seam me-1"></i>450g (18 Pcs)</span>
+                  <div class="product-price-wrap">
+                    <span class="product-price">₹235</span>
+                    <span class="demo-price-tag">Sample Price</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-brand-primary btn-add-enquiry" data-add-enquiry="snk-02">
+                  <i class="bi bi-plus-circle"></i> Add to Enquiry
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Aloo Paratha -->
+          <article class="product-card" data-product-id="par-02" data-category="Parathas">
+            <div class="product-card-media">
+              <img src="assets/images/aloo-paratha.webp" alt="Aloo Paratha - Parathas (450g 4 Pcs)" loading="lazy" width="600" height="450">
+              <span class="product-category-tag">Parathas</span>
+              <span class="diet-indicator is-veg"><span class="diet-dot"></span>Veg</span>
+            </div>
+            <div class="product-card-body">
+              <div>
+                <h3 class="product-card-title">Aloo Paratha</h3>
+                <p class="product-card-desc">Hearty whole-wheat flatbreads generously stuffed with spiced mashed potatoes and fresh coriander.</p>
+              </div>
+              <div>
+                <div class="product-meta-row">
+                  <span class="product-pack-size"><i class="bi bi-box-seam me-1"></i>450g (4 Pcs)</span>
+                  <div class="product-price-wrap">
+                    <span class="product-price">₹155</span>
+                    <span class="demo-price-tag">Sample Price</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-brand-primary btn-add-enquiry" data-add-enquiry="par-02">
+                  <i class="bi bi-plus-circle"></i> Add to Enquiry
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Frozen Green Peas -->
+          <article class="product-card" data-product-id="veg-01" data-category="Vegetarian">
+            <div class="product-card-media">
+              <img src="assets/images/green-peas.webp" alt="Frozen Green Peas - Vegetarian (500g Pack)" loading="lazy" width="600" height="450">
+              <span class="product-category-tag">Vegetarian</span>
+              <span class="diet-indicator is-veg"><span class="diet-dot"></span>Veg</span>
+            </div>
+            <div class="product-card-body">
+              <div>
+                <h3 class="product-card-title">Frozen Green Peas</h3>
+                <p class="product-card-desc">Selected tender garden green peas shelled and frozen for pulao, curries, soups and everyday stir-fries.</p>
+              </div>
+              <div>
+                <div class="product-meta-row">
+                  <span class="product-pack-size"><i class="bi bi-box-seam me-1"></i>500g Pack</span>
+                  <div class="product-price-wrap">
+                    <span class="product-price">₹110</span>
+                    <span class="demo-price-tag">Sample Price</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-brand-primary btn-add-enquiry" data-add-enquiry="veg-01">
+                  <i class="bi bi-plus-circle"></i> Add to Enquiry
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Vegetable Spring Rolls -->
+          <article class="product-card" data-product-id="snk-03" data-category="Snacks">
+            <div class="product-card-media">
+              <img src="assets/images/spring-rolls.webp" alt="Vegetable Spring Rolls - Snacks (360g 12 Pcs)" loading="lazy" width="600" height="450">
+              <span class="product-category-tag">Snacks</span>
+              <span class="diet-indicator is-veg"><span class="diet-dot"></span>Veg</span>
+            </div>
+            <div class="product-card-body">
+              <div>
+                <h3 class="product-card-title">Vegetable Spring Rolls</h3>
+                <p class="product-card-desc">Delicate, extra-crisp pastry rolls generously stuffed with julienned cabbage, carrots and bell peppers.</p>
+              </div>
+              <div>
+                <div class="product-meta-row">
+                  <span class="product-pack-size"><i class="bi bi-box-seam me-1"></i>360g (12 Pcs)</span>
+                  <div class="product-price-wrap">
+                    <span class="product-price">₹165</span>
+                    <span class="demo-price-tag">Sample Price</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-brand-primary btn-add-enquiry" data-add-enquiry="snk-03">
+                  <i class="bi bi-plus-circle"></i> Add to Enquiry
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Chicken Kebabs -->
+          <article class="product-card" data-product-id="nvg-01" data-category="Non-Vegetarian">
+            <div class="product-card-media">
+              <img src="assets/images/chicken-kebab.webp" alt="Chicken Kebabs - Non-Vegetarian (400g 8 Pcs)" loading="lazy" width="600" height="450">
+              <span class="product-category-tag">Non-Vegetarian</span>
+              <span class="diet-indicator is-nonveg"><span class="diet-dot"></span>Non-Veg</span>
+            </div>
+            <div class="product-card-body">
+              <div>
+                <h3 class="product-card-title">Chicken Kebabs</h3>
+                <p class="product-card-desc">Succulent minced chicken seekh kebabs blended with herbs and roasted spices—ready to pan-sear or grill.</p>
+              </div>
+              <div>
+                <div class="product-meta-row">
+                  <span class="product-pack-size"><i class="bi bi-box-seam me-1"></i>400g (8 Pcs)</span>
+                  <div class="product-price-wrap">
+                    <span class="product-price">₹265</span>
+                    <span class="demo-price-tag">Sample Price</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-brand-primary btn-add-enquiry" data-add-enquiry="nvg-01">
+                  <i class="bi bi-plus-circle"></i> Add to Enquiry
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 5 – WHY CHOOSE OUR FROZEN FOOD RANGE
+         ====================================================================== -->
+    <section class="section-block section-bg-white reveal-on-scroll" aria-labelledby="why-choose-heading">
+      <div class="container">
+        <div class="why-choose-layout">
+          <!-- Left Asymmetrical Editorial Panel -->
+          <div class="why-visual-panel">
+            <span class="eyebrow-badge">Practical Kitchen Companion</span>
+            <h2 id="why-choose-heading" class="text-white mb-3">CONVENIENCE YOU CAN COUNT ON.</h2>
+            <p class="mb-3">
+              Whether you are putting together a quick weekday breakfast, packing lunchboxes or serving evening tea snacks, our frozen range reduces chopping, peeling and dough preparation time.
+            </p>
+            <div class="why-visual-img">
+              <img src="assets/images/meal-preparation.webp" alt="Quick meal preparation pan-heating golden parathas and snacks in a modern kitchen" loading="lazy" width="700" height="440">
+            </div>
+          </div>
+
+          <!-- Right 6 Feature Cards -->
+          <div class="why-features-grid">
+            <div class="why-feature-box">
+              <div class="why-feature-icon" aria-hidden="true"><i class="bi bi-clock-history"></i></div>
+              <h3>Convenient Meal Preparation</h3>
+              <p class="small mb-0">Go from freezer to pan, oven or air-fryer in minutes without time-consuming ingredient prep work.</p>
+            </div>
+
+            <div class="why-feature-box">
+              <div class="why-feature-icon" aria-hidden="true"><i class="bi bi-collection"></i></div>
+              <h3>Variety of Food Choices</h3>
+              <p class="small mb-0">Choose across crispy snacks, flaky parathas, everyday garden vegetables and hearty non-vegetarian favourites.</p>
+            </div>
+
+            <div class="why-feature-box">
+              <div class="why-feature-icon" aria-hidden="true"><i class="bi bi-box2-heart"></i></div>
+              <h3>Easy-to-Store Products</h3>
+              <p class="small mb-0">Neatly portioned retail packs designed to stack cleanly and organize easily inside standard home freezer compartments.</p>
+            </div>
+
+            <div class="why-feature-box">
+              <div class="why-feature-icon" aria-hidden="true"><i class="bi bi-house-heart"></i></div>
+              <h3>Everyday Meal Solutions</h3>
+              <p class="small mb-0">Practical options for family breakfasts, quick side dishes, evening snack platters and last-minute dinner plans.</p>
+            </div>
+
+            <div class="why-feature-box">
+              <div class="why-feature-icon" aria-hidden="true"><i class="bi bi-funnel"></i></div>
+              <h3>Simple Product Selection</h3>
+              <p class="small mb-0">Clear vegetarian and non-vegetarian indicators, transparent pack weights and straightforward category browsing.</p>
+            </div>
+
+            <div class="why-feature-box">
+              <div class="why-feature-icon" aria-hidden="true"><i class="bi bi-thermometer-snow"></i></div>
+              <h3>Helpful Storage Guidance</h3>
+              <p class="small mb-0">Dedicated resources explaining how to store, handle and prepare frozen products according to pack instructions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 6 – STORAGE AND DELIVERY HIGHLIGHT
+         ====================================================================== -->
+    <section class="section-block section-bg-mint reveal-on-scroll" aria-labelledby="storage-highlight-heading">
+      <div class="container">
+        <div class="storage-highlight-panel">
+          <div class="storage-highlight-grid">
+            <div class="storage-highlight-content">
+              <span class="eyebrow-badge"><i class="bi bi-snow"></i> Care &amp; Handling Guide</span>
+              <h2 id="storage-highlight-heading" class="mb-3">KEEP IT FROZEN. KEEP IT READY.</h2>
+              <p class="mb-4">
+                Learn how to store frozen products correctly and understand the delivery information that helps keep your purchases properly handled.
+              </p>
+              <div class="row g-3 mb-4">
+                <div class="col-sm-6">
+                  <div class="d-flex align-items-start gap-2">
+                    <i class="bi bi-check-circle-fill" style="color: var(--mint-hover);"></i>
+                    <span class="small fw-semibold">Follow packaging storage instructions</span>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="d-flex align-items-start gap-2">
+                    <i class="bi bi-check-circle-fill" style="color: var(--mint-hover);"></i>
+                    <span class="small fw-semibold">Keep packs sealed to prevent freezer burn</span>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="d-flex align-items-start gap-2">
+                    <i class="bi bi-check-circle-fill" style="color: var(--mint-hover);"></i>
+                    <span class="small fw-semibold">Check expiry &amp; best-before dates</span>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="d-flex align-items-start gap-2">
+                    <i class="bi bi-check-circle-fill" style="color: var(--mint-hover);"></i>
+                    <span class="small fw-semibold">4-step transparent enquiry &amp; handover flow</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <a href="storage-delivery.html" class="btn-brand-primary">
+                  EXPLORE STORAGE &amp; DELIVERY <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="storage-highlight-visuals">
+              <div class="storage-visual-card">
+                <img src="assets/images/freezer-storage.webp" alt="Organized home freezer shelves stocked with sealed frozen food packs" loading="lazy" width="500" height="420">
+                <div class="storage-visual-caption">Organized Freezer Storage</div>
+              </div>
+              <div class="storage-visual-card">
+                <img src="assets/images/cold-chain-delivery.webp" alt="Insulated food delivery container and neatly packed frozen food parcels" loading="lazy" width="500" height="420">
+                <div class="storage-visual-caption">Careful Order Handover</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 7 – FINAL CTA
+         ====================================================================== -->
+    <section class="section-block section-bg-ice reveal-on-scroll" aria-labelledby="final-cta-heading">
+      <div class="container">
+        <div class="final-cta-banner">
+          <div class="final-cta-bg" aria-hidden="true">
+            <img src="assets/images/family-snacks.webp" alt="" loading="lazy">
+          </div>
+          <div class="final-cta-content">
+            <span class="eyebrow-badge">Stock Up Your Freezer</span>
+            <h2 id="final-cta-heading">MAKE EVERY MEAL A LITTLE EASIER.</h2>
+            <p>
+              Find your favourite frozen snacks, parathas and ready-to-cook essentials.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="products.html" class="btn-brand-mint">
+                BROWSE PRODUCTS <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="contact.html" class="btn-brand-outline-white">
+                CONTACT US
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       GLOBAL FOOTER
+       ======================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Brand Column -->
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="brand-logo mb-3">
+            <span class="brand-logo-mark" style="background-color: var(--mint-secondary); color: #FFFFFF;" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
+              </svg>
+            </span>
+            <span class="brand-logo-text">
+              <span class="brand-logo-title text-white">FROZIO</span>
+            </span>
+          </a>
+          <p class="small mb-3" style="color: rgba(255,255,255,0.8); max-width: 340px;">
+            Delicious meals, made easier with quality frozen favourites. Explore our retail collection of crispy snacks, flaky parathas, flash-frozen vegetables and non-vegetarian essentials.
+          </p>
+          <div class="contact-social-links" aria-label="Social Media Links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook" title="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="WhatsApp" title="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="YouTube" title="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="X (Twitter)" title="X (Twitter)">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="storage-delivery.html">Storage &amp; Delivery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Product Categories -->
+        <div class="col-lg-3 col-md-6 col-6">
+          <h3 class="footer-title">Product Categories</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=Snacks">Frozen Snacks</a></li>
+            <li><a href="products.html?category=Parathas">Parathas</a></li>
+            <li><a href="products.html?category=Vegetarian">Vegetarian</a></li>
+            <li><a href="products.html?category=Non-Vegetarian">Non-Vegetarian</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Support -->
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">Customer Support</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html?prefill=cart">Product Enquiries</a></li>
+            <li><a href="storage-delivery.html#delivery-info">Delivery Information</a></li>
+            <li><a href="storage-delivery.html#storage-guidance">Storage Guidance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 FROZIO. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="storage-delivery.html#faq-section" class="text-white-50">Privacy Policy (Placeholder)</a>
+          <a href="storage-delivery.html#faq-section" class="text-white-50">Terms of Use (Placeholder)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main Application Script -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

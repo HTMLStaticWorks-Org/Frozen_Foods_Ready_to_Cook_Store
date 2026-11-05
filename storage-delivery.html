@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storage &amp; Delivery | FROZIO</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Proper Storage. Better Food Handling. Simple information to help you store frozen products correctly and understand our 4-step order enquiry and delivery process.">
+  <meta property="og:title" content="Storage &amp; Delivery | FROZIO">
+  <meta property="og:description" content="Learn how to store frozen products correctly and understand our delivery enquiry and handover workflow.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/freezer-storage.webp">
+
+  <!-- Google Fonts: Outfit (Headings) & DM Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Global Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       GLOBAL STICKY HEADER
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand-logo" aria-label="FROZIO Home">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
+            </svg>
+          </span>
+          <span class="brand-logo-text">
+            <span class="brand-logo-title">FROZIO</span>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link-item">Home</a></li>
+            <li><a href="home-2.html" class="nav-link-item">Home 2</a></li>
+            <li><a href="products.html" class="nav-link-item">Products</a></li>
+            <li><a href="storage-delivery.html" class="nav-link-item active" aria-current="page">Storage &amp; Delivery</a></li>
+            <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="icon-action-btn" id="headerSearchToggleBtn" aria-expanded="false" aria-controls="headerSearchBar" aria-label="Toggle product search" title="Search Products">
+            <i class="bi bi-search"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" id="rtlToggleBtn" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout direction" title="Toggle RTL / LTR">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+
+          <button type="button" class="icon-action-btn" id="themeToggleBtn" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme" title="Toggle Dark / Light Mode">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" data-open-cart aria-label="Open Enquiry Cart" title="Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span class="cart-count-badge" id="cartCountBadge">0</span>
+          </button>
+
+          <a href="contact.html" class="btn-brand-primary header-cta-desktop">Order Enquiry</a>
+
+          <button type="button" class="hamburger-btn" id="mobileMenuOpenBtn" aria-expanded="false" aria-controls="mobileNavDrawer" aria-label="Open navigation menu">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-search-bar" id="headerSearchBar">
+      <div class="container">
+        <form class="header-search-form" id="headerSearchForm" role="search">
+          <label for="headerSearchInput" class="visually-hidden">Search frozen food products</label>
+          <input type="search" id="headerSearchInput" class="header-search-input" placeholder="Search samosas, parathas, green peas, chicken nuggets...">
+          <button type="submit" class="btn-brand-primary py-2 px-3">Search</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav-backdrop" id="sharedOverlayBackdrop"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <span class="fw-bold" style="font-family: var(--font-heading); color: var(--navy-primary);">STORE NAVIGATION</span>
+        <button type="button" class="drawer-close-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="mobile-drawer-tools">
+        <form class="mobile-drawer-search-form" data-drawer-search-form role="search">
+          <input type="search" class="mobile-drawer-search-input" placeholder="Search frozen foods..." aria-label="Search frozen food products">
+          <button type="submit" class="btn-brand-primary py-2 px-3" aria-label="Submit search"><i class="bi bi-search"></i></button>
+        </form>
+        <div class="mobile-drawer-actions-grid">
+          <button type="button" class="mobile-drawer-action-item" data-open-cart aria-label="Open Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span>Cart</span>
+            <span class="cart-count-badge">0</span>
+          </button>
+          <button type="button" class="mobile-drawer-action-item" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme">
+            <i class="bi bi-moon-stars"></i>
+            <span>Theme</span>
+          </button>
+          <button type="button" class="mobile-drawer-action-item" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+        </div>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html"><span>Home</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="home-2.html"><span>Home 2</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="products.html"><span>Products</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="storage-delivery.html" class="active"><span>Storage &amp; Delivery</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="contact.html"><span>Contact</span> <i class="bi bi-chevron-right"></i></a></li>
+        <li><a href="contact.html"><span>Order Enquiry</span> <i class="bi bi-arrow-up-right-circle"></i></a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <p class="small mb-2 fw-semibold" style="color: var(--navy-primary);">FRESH CONVENIENCE. FROZEN PERFECTION.</p>
+      <a href="products.html" class="btn-brand-primary w-100">Explore Frozen Range</a>
+    </div>
+  </aside>
+
+  <!-- Enquiry Cart Slide-Over Drawer -->
+  <aside class="enquiry-cart-drawer" id="enquiryCartDrawer" aria-hidden="true" aria-label="Product Enquiry List">
+    <div class="cart-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-bag-check-fill" style="color: var(--mint-secondary); font-size: 1.2rem;"></i>
+        <h3>Product Enquiry List</h3>
+      </div>
+      <button type="button" class="drawer-close-btn" id="enquiryCartCloseBtn" aria-label="Close enquiry cart">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-body" id="enquiryCartBody"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-line">
+        <span class="text-muted small">Selected Quantity:</span>
+        <strong id="enquiryCartCount">0 Packs</strong>
+      </div>
+      <div class="cart-summary-line mb-2">
+        <span class="text-muted small">Estimated Sample Total:</span>
+        <strong id="enquiryCartTotal" style="font-size: 1.15rem; color: var(--navy-primary);">₹0</strong>
+      </div>
+      <p class="small text-muted mb-3" style="font-size: 0.75rem;">*Sample prices are for demonstration only. Submit an enquiry to confirm current store availability.</p>
+      <div class="d-grid gap-2">
+        <a href="contact.html?prefill=cart" id="sendEnquiryCartBtn" class="btn-brand-primary">SEND PRODUCT ENQUIRY</a>
+        <button type="button" id="clearEnquiryCartBtn" class="btn-brand-secondary py-2" style="font-size: 0.8rem;">Clear Enquiry List</button>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!-- ======================================================================
+         PAGE HERO BANNER
+         ====================================================================== -->
+    <section class="page-hero-banner" aria-labelledby="storage-hero-heading">
+      <div class="container">
+        <span class="eyebrow-badge"><i class="bi bi-thermometer-snow"></i> Customer Care &amp; Handling Guide</span>
+        <h1 id="storage-hero-heading">PROPER STORAGE. BETTER FOOD HANDLING.</h1>
+        <p>
+          Simple information to help you store frozen products correctly and understand our delivery process.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 1 – STORAGE INTRODUCTION
+         ====================================================================== -->
+    <section class="section-block section-bg-ice reveal-on-scroll" aria-labelledby="storage-intro-heading">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6">
+            <span class="eyebrow-badge-mint">Why Proper Frozen Storage Matters</span>
+            <h2 id="storage-intro-heading" class="mb-3">PRESERVING TEXTURE, TASTE &amp; QUALITY AT HOME.</h2>
+            <p>
+              Frozen snacks, parathas, vegetables and ready-to-cook non-vegetarian items rely on consistent freezer storage to maintain their intended texture, moisture balance and culinary quality until the moment you cook them.
+            </p>
+            <p class="mb-4">
+              Placing items promptly into your freezer after purchase and keeping packs properly sealed prevents moisture loss, ice crystal buildup and unnecessary exposure to warm kitchen air.
+            </p>
+            <div class="p-3 rounded border bg-white d-flex align-items-start gap-3">
+              <i class="bi bi-info-circle-fill fs-4" style="color: var(--mint-hover);"></i>
+              <div class="small">
+                <strong style="color: var(--navy-primary);">Packaging First Principle:</strong> Every product carries specific storage, defrosting and cooking instructions printed by the manufacturer on its retail pack. Always refer to the pack label first.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="rounded-3 overflow-hidden border border-3 border-white shadow-sm" style="aspect-ratio: 16 / 10; background-color: var(--navy-primary);">
+              <img src="assets/images/freezer-storage.webp" alt="Modern organized kitchen refrigerator and freezer compartment stocked with neatly sealed food containers" class="w-100 h-100 object-fit-cover" width="800" height="500">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 2 – FREEZER STORAGE GUIDANCE
+         ====================================================================== -->
+    <section id="storage-guidance" class="section-block section-bg-mint reveal-on-scroll" aria-labelledby="freezer-guidance-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto" style="max-width: 680px;">
+          <span class="eyebrow-badge"><i class="bi bi-snow2"></i> Essential Guidelines</span>
+          <h2 id="freezer-guidance-heading">STORE IT RIGHT.</h2>
+          <p class="mb-0">
+            Follow these six practical habits to keep your frozen snacks, parathas, vegetables and proteins in optimal ready-to-cook condition.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="storage-checklist-card">
+              <div class="why-feature-icon"><i class="bi bi-card-checklist"></i></div>
+              <h3>Follow Printed Instructions</h3>
+              <p class="small mb-0">
+                Always follow the storage instructions printed on the product packaging, as different categories (such as parathas, vegetables or seafood) may have specific care notes.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="storage-checklist-card">
+              <div class="why-feature-icon"><i class="bi bi-snow"></i></div>
+              <h3>Use a Suitable Freezer</h3>
+              <p class="small mb-0">
+                Keep frozen products in a dedicated freezer compartment rather than a standard chiller tray so products remain thoroughly frozen until preparation.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="storage-checklist-card">
+              <div class="why-feature-icon"><i class="bi bi-thermometer-low"></i></div>
+              <h3>Manufacturer Temperature Guidance</h3>
+              <p class="small mb-0">
+                Maintain the freezer temperature recommended by the manufacturer on the individual product label to preserve food quality over time.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="storage-checklist-card">
+              <div class="why-feature-icon"><i class="bi bi-shield-lock"></i></div>
+              <h3>Keep Products Properly Sealed</h3>
+              <p class="small mb-0">
+                After opening a multi-piece pack of snacks, parathas or vegetables, reseal the pouch tightly or transfer unused portions into an airtight freezer-safe container.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="storage-checklist-card">
+              <div class="why-feature-icon"><i class="bi bi-arrow-repeat"></i></div>
+              <h3>Avoid Temperature Fluctuations</h3>
+              <p class="small mb-0">
+                Take out only the portion you plan to cook and return the remaining pack to the freezer immediately to avoid unnecessary temperature fluctuations.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="storage-checklist-card">
+              <div class="why-feature-icon"><i class="bi bi-exclamation-triangle"></i></div>
+              <h3>Do Not Refreeze Thawed Items</h3>
+              <p class="small mb-0">
+                Do not refreeze thawed products unless the product instructions specifically permit it. Once thawed, prepare and consume according to label advice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3 – PRODUCT HANDLING
+         ====================================================================== -->
+    <section class="section-block section-bg-white reveal-on-scroll" aria-labelledby="product-handling-heading">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-5">
+            <div class="rounded-3 overflow-hidden border shadow-sm" style="aspect-ratio: 4 / 3; background-color: var(--navy-primary);">
+              <img src="assets/images/freezer-handling.webp" alt="Careful kitchen food handling and ready-to-cook meal preparation from a home freezer" class="w-100 h-100 object-fit-cover" loading="lazy" width="700" height="525">
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <span class="eyebrow-badge">Safe Kitchen Practices</span>
+            <h2 id="product-handling-heading" class="mb-3">RESPONSIBLE PRODUCT HANDLING BEFORE &amp; DURING COOKING.</h2>
+            <p class="mb-4">
+              Good kitchen habits help you get the best results from every pack of frozen food while keeping meal preparation safe and hygienic.
+            </p>
+
+            <div class="d-flex flex-column gap-3">
+              <div class="p-3 rounded border bg-light d-flex align-items-start gap-3">
+                <span class="badge rounded-pill" style="background-color: var(--navy-primary);">1</span>
+                <div>
+                  <h4 class="mb-1" style="font-size: 1rem;">Check Packaging Before Storage</h4>
+                  <p class="small mb-0">Inspect pouches and boxes before placing them in the freezer to ensure seals are intact and undamaged.</p>
+                </div>
+              </div>
+
+              <div class="p-3 rounded border bg-light d-flex align-items-start gap-3">
+                <span class="badge rounded-pill" style="background-color: var(--navy-primary);">2</span>
+                <div>
+                  <h4 class="mb-1" style="font-size: 1rem;">Read Expiry &amp; Best-Before Details</h4>
+                  <p class="small mb-0">Check manufacturing, expiry and best-before dates printed on the pack and organize your freezer so older packs are used first.</p>
+                </div>
+              </div>
+
+              <div class="p-3 rounded border bg-light d-flex align-items-start gap-3">
+                <span class="badge rounded-pill" style="background-color: var(--navy-primary);">3</span>
+                <div>
+                  <h4 class="mb-1" style="font-size: 1rem;">Follow Cooking Instructions</h4>
+                  <p class="small mb-0">Some products are designed to be cooked directly from frozen (such as samosas, nuggets and parathas), while others may require thawing—follow the exact method on the pack.</p>
+                </div>
+              </div>
+
+              <div class="p-3 rounded border bg-light d-flex align-items-start gap-3">
+                <span class="badge rounded-pill" style="background-color: var(--navy-primary);">4</span>
+                <div>
+                  <h4 class="mb-1" style="font-size: 1rem;">Avoid Damaged or Improperly Stored Products</h4>
+                  <p class="small mb-0">Avoid consuming products if the primary packaging is torn, unsealed or shows signs of improper storage prior to cooking.</p>
+                </div>
+              </div>
+
+              <div class="p-3 rounded border bg-light d-flex align-items-start gap-3">
+                <span class="badge rounded-pill" style="background-color: var(--navy-primary);">5</span>
+                <div>
+                  <h4 class="mb-1" style="font-size: 1rem;">Handle According to Packaging Guidance</h4>
+                  <p class="small mb-0">Keep raw non-vegetarian ready-to-cook products separate from ready-to-eat foods and wash hands and utensils thoroughly after handling.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 4 – DELIVERY INFORMATION (4 STEPS + EDITABLE PLACEHOLDERS)
+         ====================================================================== -->
+    <section id="delivery-info" class="section-block section-bg-ice reveal-on-scroll" aria-labelledby="delivery-info-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto" style="max-width: 680px;">
+          <span class="eyebrow-badge"><i class="bi bi-truck"></i> Order Enquiry &amp; Handover Workflow</span>
+          <h2 id="delivery-info-heading">FROM OUR STORE TO YOUR DOOR.</h2>
+          <p class="mb-0">
+            Understand how product enquiries, availability checks and order handovers work in four clear steps.
+          </p>
+        </div>
+
+        <div class="delivery-steps-grid mb-4">
+          <!-- Step 01 -->
+          <div class="delivery-step-card">
+            <span class="step-number-badge">01</span>
+            <h3>Product Selection</h3>
+            <p class="small mb-0">
+              Browse our online catalogue across Snacks, Parathas, Vegetarian and Non-Vegetarian categories and add your desired packs and quantities to your Enquiry List.
+            </p>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="delivery-step-card">
+            <span class="step-number-badge">02</span>
+            <h3>Order Enquiry</h3>
+            <p class="small mb-0">
+              Submit your selected products, preferred quantity and delivery location through our Contact &amp; Order Enquiry form.
+            </p>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="delivery-step-card">
+            <span class="step-number-badge">03</span>
+            <h3>Availability &amp; Delivery Confirmation</h3>
+            <p class="small mb-0">
+              Our store team reviews current stock availability, confirms applicable pricing and shares available pickup or local delivery options for your area.
+            </p>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="delivery-step-card">
+            <span class="step-number-badge">04</span>
+            <h3>Order Handover</h3>
+            <p class="small mb-0">
+              Once confirmed with the store, your order is prepared for collection or scheduled handover so you can place items promptly into your freezer.
+            </p>
+          </div>
+        </div>
+
+        <!-- Editable Client Policy Placeholders -->
+        <div class="p-4 rounded-3 border bg-white shadow-sm">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <span class="eyebrow-badge-mint mb-2">Store Delivery Policy Placeholders (Editable Client Details)</span>
+              <h3 class="mb-2" style="font-size: 1.2rem;">Important Delivery &amp; Service Notes</h3>
+              <p class="small mb-2">
+                Delivery coverage areas, minimum order values, delivery charges, packaging methods and dispatch schedules are confirmed directly by the store upon receiving your enquiry.
+              </p>
+              <div class="row g-2 small text-muted">
+                <div class="col-sm-6"><i class="bi bi-geo-alt me-1"></i><strong>Serviceable Areas:</strong> [Client Placeholder: Local Store Service Radius / Pincodes]</div>
+                <div class="col-sm-6"><i class="bi bi-clock me-1"></i><strong>Dispatch Window:</strong> [Client Placeholder: Store Dispatch &amp; Handover Timings]</div>
+                <div class="col-sm-6"><i class="bi bi-box-seam me-1"></i><strong>Minimum Order Policy:</strong> [Client Placeholder: Minimum Order Value / Pack Count]</div>
+                <div class="col-sm-6"><i class="bi bi-cash-stack me-1"></i><strong>Delivery Charges:</strong> [Client Placeholder: Applicable Local Delivery Fee Structure]</div>
+              </div>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="contact.html" class="btn-brand-primary">Enquire About Your Area</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 5 – FREQUENTLY ASKED QUESTIONS (6 FUNCTIONAL ACCORDIONS)
+         ====================================================================== -->
+    <section id="faq-section" class="section-block section-bg-mint reveal-on-scroll" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto" style="max-width: 660px;">
+          <span class="eyebrow-badge"><i class="bi bi-question-circle"></i> Helpful Answers</span>
+          <h2 id="faq-heading">FREQUENTLY ASKED QUESTIONS.</h2>
+          <p class="mb-0">
+            Find answers to common questions about storing frozen foods, checking pack instructions and submitting delivery enquiries.
+          </p>
+        </div>
+
+        <div class="faq-accordion-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-trigger" aria-expanded="true" aria-controls="faq-panel-1" id="faq-btn-1">
+                <span>1. How should I store frozen food?</span>
+                <span class="faq-icon" aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+              </button>
+            </h3>
+            <div id="faq-panel-1" class="faq-content" role="region" aria-labelledby="faq-btn-1">
+              Place frozen products directly into a suitable freezer compartment as soon as possible after purchase. Always follow the specific storage instructions and temperature guidance printed by the manufacturer on each product pack, and keep opened packs tightly resealed.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-btn-2">
+                <span>2. Can frozen food be kept outside the freezer?</span>
+                <span class="faq-icon" aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+              </button>
+            </h3>
+            <div id="faq-panel-2" class="faq-content" role="region" aria-labelledby="faq-btn-2" hidden>
+              Frozen foods should not be left at room temperature for extended periods except when thawing specifically as directed by the product packaging prior to cooking. Leaving frozen items outside the freezer causes thawing and affects food quality and safety.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-btn-3">
+                <span>3. Where can I find the cooking instructions?</span>
+                <span class="faq-icon" aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+              </button>
+            </h3>
+            <div id="faq-panel-3" class="faq-content" role="region" aria-labelledby="faq-btn-3" hidden>
+              Detailed cooking methods—such as pan-heating, shallow frying, deep frying, air-frying, steaming or baking—along with recommended cooking times are printed on the back or side panel of each individual product package.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-btn-4">
+                <span>4. Can I refreeze thawed products?</span>
+                <span class="faq-icon" aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+              </button>
+            </h3>
+            <div id="faq-panel-4" class="faq-content" role="region" aria-labelledby="faq-btn-4" hidden>
+              Do not refreeze thawed products unless the manufacturer's instructions on the product packaging explicitly state that it is safe to do so. To avoid waste, remove only the number of pieces or portion size you need for a single meal and return the rest to the freezer immediately.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-btn-5">
+                <span>5. How can I enquire about delivery availability?</span>
+                <span class="faq-icon" aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+              </button>
+            </h3>
+            <div id="faq-panel-5" class="faq-content" role="region" aria-labelledby="faq-btn-5" hidden>
+              You can select your desired items on our Products page and click "Send Product Enquiry," or fill out the form directly on our Contact page with your delivery location. Our team will confirm whether delivery is available in your area along with applicable store policies.
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <h3>
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-6" id="faq-btn-6">
+                <span>6. How do I check product pack sizes?</span>
+                <span class="faq-icon" aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+              </button>
+            </h3>
+            <div id="faq-panel-6" class="faq-content" role="region" aria-labelledby="faq-btn-6" hidden>
+              Sample pack weights and piece counts are displayed on each product card on our Products page for reference. Exact net weight and piece counts are printed on the physical retail packaging and can be confirmed when placing your product enquiry.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 6 – FINAL CTA
+         ====================================================================== -->
+    <section class="section-block section-bg-ice reveal-on-scroll" aria-labelledby="storage-final-cta-heading">
+      <div class="container">
+        <div class="final-cta-banner">
+          <div class="final-cta-bg" aria-hidden="true">
+            <img src="assets/images/delivery-trucks.webp" alt="" loading="lazy">
+          </div>
+          <div class="final-cta-content">
+            <span class="eyebrow-badge">We Are Here to Help</span>
+            <h2 id="storage-final-cta-heading">NEED HELP WITH STORAGE OR DELIVERY?</h2>
+            <p>
+              Browse our frozen food collection or contact our team with questions about product availability and local handover options.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="products.html" class="btn-brand-mint">
+                EXPLORE PRODUCTS <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="contact.html" class="btn-brand-outline-white">
+                CONTACT OUR TEAM
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       GLOBAL FOOTER
+       ======================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="brand-logo mb-3">
+            <span class="brand-logo-mark" style="background-color: var(--mint-secondary); color: #FFFFFF;" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
+              </svg>
+            </span>
+            <span class="brand-logo-text">
+              <span class="brand-logo-title text-white">FROZIO</span>
+            </span>
+          </a>
+          <p class="small mb-3" style="color: rgba(255,255,255,0.8); max-width: 340px;">
+            Delicious meals, made easier with quality frozen favourites. Explore our retail collection of crispy snacks, flaky parathas, flash-frozen vegetables and non-vegetarian essentials.
+          </p>
+          <div class="contact-social-links" aria-label="Social Media Links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook" title="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="WhatsApp" title="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="YouTube" title="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="X (Twitter)" title="X (Twitter)">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="storage-delivery.html">Storage &amp; Delivery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-6">
+          <h3 class="footer-title">Product Categories</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=Snacks">Frozen Snacks</a></li>
+            <li><a href="products.html?category=Parathas">Parathas</a></li>
+            <li><a href="products.html?category=Vegetarian">Vegetarian</a></li>
+            <li><a href="products.html?category=Non-Vegetarian">Non-Vegetarian</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">Customer Support</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html?prefill=cart">Product Enquiries</a></li>
+            <li><a href="storage-delivery.html#delivery-info">Delivery Information</a></li>
+            <li><a href="storage-delivery.html#storage-guidance">Storage Guidance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 FROZIO. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="storage-delivery.html#faq-section" class="text-white-50">Privacy Policy (Placeholder)</a>
+          <a href="storage-delivery.html#faq-section" class="text-white-50">Terms of Use (Placeholder)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
