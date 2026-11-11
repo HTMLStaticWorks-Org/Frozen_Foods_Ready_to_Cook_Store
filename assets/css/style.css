@@ -299,11 +299,10 @@ img {
   background-color: var(--surface-white);
   border-bottom: 1px solid var(--border-color);
   transition: padding var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
-  padding: 0.55rem 0;
+  padding: 0;
 }
 
 .site-header.is-scrolled {
-  padding: 0.42rem 0;
   box-shadow: 0 6px 24px rgba(45, 20, 75, 0.12);
 }
 
@@ -312,6 +311,14 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
+  min-height: 58px;
+  padding: 0.45rem 0;
+  transition: padding var(--transition-fast), min-height var(--transition-fast);
+}
+
+.site-header.is-scrolled .header-inner {
+  min-height: 54px;
+  padding: 0.35rem 0;
 }
 
 .brand-logo {
@@ -597,19 +604,19 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.35rem;
-  padding: 1.75rem 1.25rem 2rem;
+  gap: 1rem;
+  padding: 1.25rem 1.25rem 1.5rem;
   text-align: center;
 }
 
 .mobile-nav-links {
   list-style: none;
-  margin: auto 0 0;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.35rem;
   width: 100%;
 }
 
@@ -617,16 +624,16 @@ img {
   display: inline-block;
   text-align: center;
   font-size: 1.04rem;
-  padding: 0.45rem 0.2rem;
+  padding: 0.38rem 0.5rem;
 }
 
 .mobile-drawer-controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
   width: 100%;
-  margin: 0 0 auto;
+  margin: 0;
 }
 
 .mobile-drawer-icon-row {
@@ -687,13 +694,14 @@ img {
 /* Search Bar Overlay */
 .header-search-bar {
   background-color: var(--bg-soft-mint);
-  border-bottom: 1px solid var(--border-color);
+  border-top: 0 solid transparent;
   max-height: 0;
   overflow: hidden;
   transition: max-height var(--transition-smooth), padding var(--transition-smooth);
 }
 
 .header-search-bar.is-open {
+  border-top: 1px solid var(--border-color);
   max-height: 110px;
   padding: 0.85rem 0;
 }
@@ -2272,6 +2280,13 @@ textarea.form-control-brand {
   }
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  .site-footer .row > [class*="col-"] {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+
 /* ==========================================================================
    16B. BACK TO TOP BUTTON
    ========================================================================== */
@@ -2494,11 +2509,11 @@ textarea.form-control-brand {
 
 [data-theme="dark"] .site-footer {
   background-color: var(--navy-dark);
-  color: rgba(255, 255, 255, 0.82);
+  color: #FFFFFF;
 }
 
 [data-theme="dark"] .site-footer p {
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFFFF;
 }
 
 [data-theme="dark"] .site-footer .footer-title {
@@ -2506,7 +2521,7 @@ textarea.form-control-brand {
 }
 
 [data-theme="dark"] .site-footer .footer-links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFFFF;
 }
 
 [data-theme="dark"] .site-footer .footer-links a:hover {
@@ -2532,11 +2547,11 @@ textarea.form-control-brand {
 
 [data-theme="dark"] .site-footer .footer-bottom {
   border-top-color: rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.75);
+  color: #FFFFFF;
 }
 
 [data-theme="dark"] .site-footer .footer-bottom a {
-  color: rgba(255, 255, 255, 0.75);
+  color: #FFFFFF;
 }
 
 [data-theme="dark"] .site-footer .footer-bottom a:hover {
@@ -2672,6 +2687,17 @@ textarea.form-control-brand {
   margin-left: 0.5rem !important;
 }
 
+[dir="rtl"] [aria-labelledby="featured-products-heading"] .product-pack-size {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+[dir="rtl"] [aria-labelledby="featured-products-heading"] .product-pack-size > .bi.me-1 {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
 [dir="rtl"] .footer-links a:hover {
   transform: translateX(-3px);
 }
@@ -2791,7 +2817,7 @@ textarea.form-control-brand {
   align-items: center;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .quality-guarantee-wrap {
     grid-template-columns: 1.05fr 0.95fr;
   }
@@ -2943,7 +2969,7 @@ textarea.form-control-brand {
   align-items: center;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .product-detail-grid {
     grid-template-columns: 0.92fr 1.08fr;
     gap: 2.5rem;
@@ -3178,5 +3204,16 @@ textarea.form-control-brand {
   }
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  [aria-labelledby="enquiry-callout-heading"] .d-flex.flex-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
+  [aria-labelledby="enquiry-callout-heading"] .btn-brand-primary,
+  [aria-labelledby="enquiry-callout-heading"] .btn-brand-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
