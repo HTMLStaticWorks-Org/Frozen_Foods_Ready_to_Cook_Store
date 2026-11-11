@@ -62,7 +62,12 @@
           </button>
 
           <button type="button" class="icon-action-btn" id="rtlToggleBtn" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout direction" title="Toggle RTL / LTR">
-            <span class="rtl-badge-text">RTL</span>
+            <svg class="rtl-toggle-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 7h16"/>
+              <path d="M16 3.5 20 7l-4 3.5"/>
+              <path d="M20 17H4"/>
+              <path d="M8 13.5 4 17l4 3.5"/>
+            </svg>
           </button>
 
           <button type="button" class="icon-action-btn" id="themeToggleBtn" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme" title="Toggle Dark / Light Mode">
@@ -100,45 +105,60 @@
 
   <!-- Mobile Navigation Drawer -->
   <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true" aria-label="Mobile Navigation">
-    <div>
-      <div class="mobile-drawer-header">
-        <span class="fw-bold" style="font-family: var(--font-heading); color: var(--navy-primary);">STORE NAVIGATION</span>
-        <button type="button" class="drawer-close-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
-          <i class="bi bi-x-lg"></i>
-        </button>
-      </div>
-      <div class="mobile-drawer-tools">
-        <form class="mobile-drawer-search-form" data-drawer-search-form role="search">
-          <input type="search" class="mobile-drawer-search-input" placeholder="Search frozen foods..." aria-label="Search frozen food products">
-          <button type="submit" class="btn-brand-primary py-2 px-3" aria-label="Submit search"><i class="bi bi-search"></i></button>
-        </form>
-        <div class="mobile-drawer-actions-grid">
-          <button type="button" class="mobile-drawer-action-item" data-open-cart aria-label="Open Enquiry Cart">
-            <i class="bi bi-bag-check"></i>
-            <span>Cart</span>
-            <span class="cart-count-badge">0</span>
+    <div class="mobile-drawer-header">
+      <span class="fw-bold" style="font-family: var(--font-heading); color: var(--navy-primary);">STORE NAVIGATION</span>
+      <button type="button" class="drawer-close-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="nav-link-item active" aria-current="page">Home</a></li>
+        <li><a href="home-2.html" class="nav-link-item">Home 2</a></li>
+        <li><a href="products.html" class="nav-link-item">Products</a></li>
+        <li><a href="storage-delivery.html" class="nav-link-item">Storage &amp; Delivery</a></li>
+        <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-controls">
+        <div class="mobile-drawer-icon-row">
+          <button type="button" class="icon-action-btn" id="drawerSearchToggleBtn" data-toggle-drawer-search aria-expanded="false" aria-controls="mobileDrawerSearchBar" aria-label="Toggle product search" title="Search Products">
+            <i class="bi bi-search"></i>
           </button>
-          <button type="button" class="mobile-drawer-action-item" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme">
-            <i class="bi bi-moon-stars"></i>
-            <span>Theme</span>
-          </button>
-          <button type="button" class="mobile-drawer-action-item" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout">
-            <span class="rtl-badge-text">RTL</span>
+
+          <button type="button" class="icon-action-btn" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout direction" title="Toggle RTL / LTR">
+            <svg class="rtl-toggle-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 7h16"/>
+              <path d="M16 3.5 20 7l-4 3.5"/>
+              <path d="M20 17H4"/>
+              <path d="M8 13.5 4 17l4 3.5"/>
+            </svg>
           </button>
         </div>
+
+        <div class="mobile-drawer-search-bar" id="mobileDrawerSearchBar">
+          <form class="mobile-drawer-search-form" data-drawer-search-form role="search">
+            <input type="search" class="mobile-drawer-search-input" placeholder="Search frozen foods..." aria-label="Search frozen food products">
+            <button type="submit" class="btn-brand-primary py-2 px-3" aria-label="Submit search"><i class="bi bi-search"></i></button>
+          </form>
+        </div>
+
+        <div class="mobile-drawer-icon-row">
+          <button type="button" class="icon-action-btn" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme" title="Toggle Dark / Light Mode">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" data-open-cart aria-label="Open Enquiry Cart" title="Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span class="cart-count-badge">0</span>
+          </button>
+        </div>
+
+        <div class="mobile-drawer-cta-wrap">
+          <a href="contact.html" class="btn-brand-primary mobile-drawer-cta">Order Enquiry</a>
+        </div>
       </div>
-      <ul class="mobile-nav-links">
-        <li><a href="index.html" class="active"><span>Home</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="home-2.html"><span>Home 2</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="products.html"><span>Products</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="storage-delivery.html"><span>Storage &amp; Delivery</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="contact.html"><span>Contact</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="contact.html"><span>Order Enquiry</span> <i class="bi bi-arrow-up-right-circle"></i></a></li>
-      </ul>
-    </div>
-    <div class="mobile-drawer-footer">
-      <p class="small mb-2 fw-semibold" style="color: var(--navy-primary);">FRESH CONVENIENCE. FROZEN PERFECTION.</p>
-      <a href="products.html" class="btn-brand-primary w-100">Explore Frozen Range</a>
     </div>
   </aside>
 
@@ -285,7 +305,7 @@
           <!-- Selection 2: Paratha Meal Picks -->
           <article class="quick-pick-card">
             <div class="quick-pick-media">
-              <img src="assets/images/aloo-paratha.webp" alt="Paratha Meal Picks featuring warm stuffed aloo paratha on a plate" loading="lazy" width="600" height="375">
+              <img src="assets/images/malabar-paratha.webp" alt="Paratha Meal Picks featuring flaky layered Malabar parathas" loading="lazy" width="600" height="375">
               <span class="prep-convenience-label"><i class="bi bi-clock me-1"></i>Pan-Heat in Minutes</span>
             </div>
             <div class="quick-pick-body">
@@ -305,7 +325,7 @@
           <!-- Selection 3: Veggie Quick Bites -->
           <article class="quick-pick-card">
             <div class="quick-pick-media">
-              <img src="assets/images/green-peas.webp" alt="Veggie Quick Bites with flash-frozen green peas and vegetables" loading="lazy" width="600" height="375">
+              <img src="assets/images/mixed-vegetables.webp" alt="Veggie Quick Bites with fresh peas, carrots and garden vegetables" loading="lazy" width="600" height="375">
               <span class="prep-convenience-label"><i class="bi bi-check2-all me-1"></i>Pre-Cleaned &amp; Prepped</span>
             </div>
             <div class="quick-pick-body">
@@ -325,7 +345,7 @@
           <!-- Selection 4: Non-Veg Favourites -->
           <article class="quick-pick-card">
             <div class="quick-pick-media">
-              <img src="assets/images/chicken-kebab.webp" alt="Non-Veg Favourites featuring spiced chicken seekh kebabs and golden strips" loading="lazy" width="600" height="375">
+              <img src="assets/images/chicken-strips.webp" alt="Non-Veg Favourites featuring crispy golden chicken breast strips" loading="lazy" width="600" height="375">
               <span class="prep-convenience-label"><i class="bi bi-award me-1"></i>Pan-Sear, Grill or Bake</span>
             </div>
             <div class="quick-pick-body">
@@ -772,16 +792,16 @@
         <!-- Brand Column -->
         <div class="col-lg-4 col-md-6">
           <a href="index.html" class="brand-logo mb-3">
-            <span class="brand-logo-mark" style="background-color: var(--mint-secondary); color: #FFFFFF;" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <span class="brand-logo-mark" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
               </svg>
             </span>
             <span class="brand-logo-text">
-              <span class="brand-logo-title text-white">FROZIO</span>
+              <span class="brand-logo-title">FROZIO</span>
             </span>
           </a>
-          <p class="small mb-3" style="color: rgba(255,255,255,0.8); max-width: 340px;">
+          <p class="small mb-3" style="max-width: 340px;">
             Delicious meals, made easier with quality frozen favourites. Explore our retail collection of crispy snacks, flaky parathas, flash-frozen vegetables and non-vegetarian essentials.
           </p>
           <div class="contact-social-links" aria-label="Social Media Links">
@@ -841,12 +861,17 @@
       <div class="footer-bottom">
         <div>&copy; 2026 FROZIO. All rights reserved.</div>
         <div class="d-flex gap-3">
-          <a href="storage-delivery.html#faq-section" class="text-white-50">Privacy Policy (Placeholder)</a>
-          <a href="storage-delivery.html#faq-section" class="text-white-50">Terms of Use (Placeholder)</a>
+          <a href="storage-delivery.html#faq-section">Privacy Policy (Placeholder)</a>
+          <a href="storage-delivery.html#faq-section">Terms of Use (Placeholder)</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to Top">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
 
   <!-- Main Application Script -->
   <script src="assets/js/main.js"></script>

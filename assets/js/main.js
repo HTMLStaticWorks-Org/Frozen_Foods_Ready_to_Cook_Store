@@ -21,7 +21,9 @@ const PRODUCT_CATALOG = [
     price: 145,
     featured: true,
     image: 'assets/images/frozen-samosa.webp',
-    description: 'Crispy triangular pastry pockets filled with seasoned potatoes, green peas and aromatic kitchen spices. Ready to fry or air-fry straight from the freezer.'
+    description: 'Crispy triangular pastry pockets filled with seasoned potatoes, green peas and aromatic kitchen spices. Ready to fry or air-fry straight from the freezer.',
+    ingredients: 'Refined wheat flour (maida), potatoes, green peas, vegetable oil, cumin, coriander seeds, ginger, green chillies, amchur and iodised salt.',
+    prepInstructions: 'Cook straight from frozen. Air-fry at 180°C for 10–12 mins (flipping halfway), or deep-fry at 175°C for 4–5 mins until golden crisp.'
   },
   {
     id: 'snk-02',
@@ -32,7 +34,9 @@ const PRODUCT_CATALOG = [
     price: 235,
     featured: true,
     image: 'assets/images/chicken-nuggets.webp',
-    description: 'Tender minced chicken bites coated in a golden, crunchy breadcrumb batter for quick evening snacks and family sharing platters.'
+    description: 'Tender minced chicken bites coated in a golden, crunchy breadcrumb batter for quick evening snacks and family sharing platters.',
+    ingredients: 'Boneless chicken meat, wheat flour, toasted breadcrumbs, corn starch, garlic powder, white pepper, onion powder and seasoning.',
+    prepInstructions: 'Do not thaw. Air-fry at 185°C for 8–10 mins, bake at 200°C for 12–14 mins, or shallow-fry in hot oil for 3–4 mins until piping hot.'
   },
   {
     id: 'snk-03',
@@ -43,7 +47,9 @@ const PRODUCT_CATALOG = [
     price: 165,
     featured: true,
     image: 'assets/images/spring-rolls.webp',
-    description: 'Delicate, extra-crisp pastry rolls generously stuffed with julienned cabbage, carrots, bell peppers and savoury seasoning.'
+    description: 'Delicate, extra-crisp pastry rolls generously stuffed with julienned cabbage, carrots, bell peppers and savoury seasoning.',
+    ingredients: 'Wheat pastry wrapper, cabbage, carrots, capsicum, French beans, spring onion, soy seasoning, ginger, garlic and sesame oil.',
+    prepInstructions: 'Cook from frozen. Deep-fry in medium-hot oil (175°C) for 4–5 mins, or brush lightly with oil and air-fry at 180°C for 10–12 mins.'
   },
   {
     id: 'snk-04',
@@ -54,7 +60,9 @@ const PRODUCT_CATALOG = [
     price: 210,
     featured: false,
     image: 'assets/images/cheese-balls.webp',
-    description: 'Golden herb-crusted bite-sized spheres filled with a creamy blend of melted cheese, sweet corn and mild cracked pepper.'
+    description: 'Golden herb-crusted bite-sized spheres filled with a creamy blend of melted cheese, sweet corn and mild cracked pepper.',
+    ingredients: 'Processed mozzarella and cheddar cheese, mashed potatoes, sweet corn kernels, breadcrumbs, oregano, parsley and black pepper.',
+    prepInstructions: 'Fry straight from frozen at 175°C for 3–4 mins until crisp outside (avoid over-frying), or air-fry at 180°C for 7–8 mins.'
   },
   {
     id: 'snk-05',
@@ -65,7 +73,9 @@ const PRODUCT_CATALOG = [
     price: 150,
     featured: false,
     image: 'assets/images/potato-wedges.webp',
-    description: 'Thick-cut skin-on potato wedges lightly seasoned with garlic, oregano and paprika for a fluffy interior and crisp outer crunch.'
+    description: 'Thick-cut skin-on potato wedges lightly seasoned with garlic, oregano and paprika for a fluffy interior and crisp outer crunch.',
+    ingredients: 'Selected potatoes, rice flour coating, garlic powder, paprika, dried oregano, black pepper and vegetable oil.',
+    prepInstructions: 'Cook directly from frozen. Air-fry at 190°C for 12–14 mins shaking once, bake at 210°C for 18 mins, or deep-fry for 4 mins.'
   },
 
   // CATEGORY 2 — PARATHAS (5 Products)
@@ -78,7 +88,9 @@ const PRODUCT_CATALOG = [
     price: 115,
     featured: false,
     image: 'assets/images/plain-paratha.webp',
-    description: 'Homestyle triangular layered flatbreads that puff up warm and flaky on a hot tawa in just minutes without rolling or kneading.'
+    description: 'Homestyle triangular layered flatbreads that puff up warm and flaky on a hot tawa in just minutes without rolling or kneading.',
+    ingredients: 'Wheat flour, water, refined vegetable oil, milk solids, sugar and iodised salt.',
+    prepInstructions: 'Heat directly from frozen on a medium-hot tawa/skillet for 3–4 mins, flipping and pressing gently until golden spots appear on both sides.'
   },
   {
     id: 'par-02',
@@ -89,7 +101,9 @@ const PRODUCT_CATALOG = [
     price: 155,
     featured: true,
     image: 'assets/images/aloo-paratha.webp',
-    description: 'Hearty whole-wheat flatbreads generously stuffed with spiced mashed potatoes, fresh coriander leaves and toasted cumin.'
+    description: 'Hearty whole-wheat flatbreads generously stuffed with spiced mashed potatoes, fresh coriander leaves and toasted cumin.',
+    ingredients: 'Whole wheat flour (atta), mashed potatoes, onions, fresh coriander, green chillies, cumin seeds, dry mango powder and salt.',
+    prepInstructions: 'Cook straight from freezer on a preheated tawa over medium heat for 3–4 mins per side with a touch of ghee or butter.'
   },
   {
     id: 'par-03',
@@ -100,7 +114,9 @@ const PRODUCT_CATALOG = [
     price: 140,
     featured: false,
     image: 'assets/images/malabar-paratha.webp',
-    description: 'Traditional South Indian ribbon-layered parottas with delicate, flaky spiral layers that pair effortlessly with curries and gravies.'
+    description: 'Traditional South Indian ribbon-layered parottas with delicate, flaky spiral layers that pair effortlessly with curries and gravies.',
+    ingredients: 'Refined wheat flour, water, vegetable fat, sugar and salt.',
+    prepInstructions: 'Place frozen parotta on a preheated tawa for 2–3 mins flipping occasionally until flaky and golden, then gently fluff between palms.'
   },
   {
     id: 'par-04',
@@ -111,7 +127,9 @@ const PRODUCT_CATALOG = [
     price: 125,
     featured: false,
     image: 'assets/images/wheat-paratha.webp',
-    description: 'Soft everyday whole wheat flatbreads prepared for quick pan-heating on busy weekday mornings and lunchbox packing.'
+    description: 'Soft everyday whole wheat flatbreads prepared for quick pan-heating on busy weekday mornings and lunchbox packing.',
+    ingredients: '100% whole wheat flour (chakki atta), water, refined sunflower oil and iodised salt.',
+    prepInstructions: 'No thawing required. Cook on a medium-hot dry or lightly greased pan for 2–3 mins, flipping until soft and lightly browned.'
   },
   {
     id: 'par-05',
@@ -122,7 +140,9 @@ const PRODUCT_CATALOG = [
     price: 165,
     featured: false,
     image: 'assets/images/veg-paratha.webp',
-    description: 'Wholesome stuffed parathas filled with finely grated carrots, cauliflower, green peas, potatoes and mild ginger-chilli seasoning.'
+    description: 'Wholesome stuffed parathas filled with finely grated carrots, cauliflower, green peas, potatoes and mild ginger-chilli seasoning.',
+    ingredients: 'Whole wheat flour, potatoes, carrots, cauliflower, green peas, ginger, coriander, turmeric and blended Indian spices.',
+    prepInstructions: 'Roast straight from frozen on a preheated skillet for 3–5 mins over medium flame, brushing lightly with butter or oil.'
   },
 
   // CATEGORY 3 — VEGETARIAN (5 Products)
@@ -135,7 +155,9 @@ const PRODUCT_CATALOG = [
     price: 110,
     featured: true,
     image: 'assets/images/green-peas.webp',
-    description: 'Selected tender garden green peas shelled and frozen to lock in natural sweetness for pulao, curries, soups and everyday stir-fries.'
+    description: 'Selected tender garden green peas shelled and frozen to lock in natural sweetness for pulao, curries, soups and everyday stir-fries.',
+    ingredients: '100% tender garden green peas (blanched and flash-frozen; zero added preservatives).',
+    prepInstructions: 'Rinse briefly under cool water if needed, then simmer or steam for 3–4 mins, or add directly into hot curries, pulao or stir-fries.'
   },
   {
     id: 'veg-02',
@@ -146,7 +168,9 @@ const PRODUCT_CATALOG = [
     price: 120,
     featured: false,
     image: 'assets/images/sweet-corn.webp',
-    description: 'Plump, juicy golden sweet corn kernels ready to steam, toss with butter and pepper, or add to salads, pasta and soups.'
+    description: 'Plump, juicy golden sweet corn kernels ready to steam, toss with butter and pepper, or add to salads, pasta and soups.',
+    ingredients: '100% natural golden sweet corn kernels (blanched and flash-frozen).',
+    prepInstructions: 'Boil or steam directly from frozen for 3–4 mins, microwave in a covered bowl for 2–3 mins, or toss directly into soups and sauces.'
   },
   {
     id: 'veg-03',
@@ -157,7 +181,9 @@ const PRODUCT_CATALOG = [
     price: 130,
     featured: false,
     image: 'assets/images/mixed-vegetables.webp',
-    description: 'Pre-cut medley of diced carrots, green peas, sweet corn kernels and French beans—washed, prepped and ready for the pan.'
+    description: 'Pre-cut medley of diced carrots, green peas, sweet corn kernels and French beans—washed, prepped and ready for the pan.',
+    ingredients: 'Diced carrots, green peas, sweet corn kernels and trimmed French beans (flash-frozen).',
+    prepInstructions: 'Cook directly from frozen. Steam or simmer for 4–5 mins, or sauté in a wok with light butter, herbs or stir-fry sauces.'
   },
   {
     id: 'veg-04',
@@ -168,7 +194,9 @@ const PRODUCT_CATALOG = [
     price: 175,
     featured: false,
     image: 'assets/images/frozen-broccoli.webp',
-    description: 'Trimmed, bite-sized green broccoli florets ready for quick steaming, roasting, pasta bakes and Asian-style wok tosses.'
+    description: 'Trimmed, bite-sized green broccoli florets ready for quick steaming, roasting, pasta bakes and Asian-style wok tosses.',
+    ingredients: '100% fresh-trimmed green broccoli florets (blanched and IQF flash-frozen).',
+    prepInstructions: 'Steam for 3–4 mins until bright green and tender-crisp, or roast at 200°C with olive oil and garlic for 12–15 mins.'
   },
   {
     id: 'veg-05',
@@ -179,7 +207,9 @@ const PRODUCT_CATALOG = [
     price: 160,
     featured: false,
     image: 'assets/images/veg-cutlets.webp',
-    description: 'Crumb-coated spiced vegetable patties crafted with potatoes, beetroot, carrots and green beans for tea-time plates and burger fillings.'
+    description: 'Crumb-coated spiced vegetable patties crafted with potatoes, beetroot, carrots and green beans for tea-time plates and burger fillings.',
+    ingredients: 'Potatoes, beetroot, carrots, green peas, French beans, breadcrumbs, garam masala, ginger and coriander.',
+    prepInstructions: 'Cook straight from frozen. Shallow-fry on a greased pan for 3–4 mins per side, or air-fry at 180°C for 10–12 mins.'
   },
 
   // CATEGORY 4 — NON-VEGETARIAN (5 Products)
@@ -192,7 +222,9 @@ const PRODUCT_CATALOG = [
     price: 265,
     featured: true,
     image: 'assets/images/chicken-kebab.webp',
-    description: 'Succulent minced chicken seekh kebabs blended with fresh herbs, garlic, ginger and roasted spices—ready to pan-sear or grill.'
+    description: 'Succulent minced chicken seekh kebabs blended with fresh herbs, garlic, ginger and roasted spices—ready to pan-sear or grill.',
+    ingredients: 'Minced chicken, onions, fresh mint, coriander leaves, ginger-garlic paste, cumin, black pepper and seekh masala.',
+    prepInstructions: 'Pan-sear or grill directly from frozen with 1 tbsp oil over medium heat for 6–8 mins, turning until browned and fully cooked.'
   },
   {
     id: 'nvg-02',
@@ -203,7 +235,9 @@ const PRODUCT_CATALOG = [
     price: 275,
     featured: false,
     image: 'assets/images/chicken-strips.webp',
-    description: 'Whole chicken breast tenders coated in a seasoned crispy batter—ideal for wraps, quick meals or dipping sauces.'
+    description: 'Whole chicken breast tenders coated in a seasoned crispy batter—ideal for wraps, quick meals or dipping sauces.',
+    ingredients: 'Boneless chicken breast strips, wheat flour, cornflakes crumb coating, paprika, garlic powder, oregano and salt.',
+    prepInstructions: 'Do not thaw. Air-fry at 185°C for 10–12 mins, or deep-fry at 175°C for 4–5 mins until golden and cooked thoroughly.'
   },
   {
     id: 'nvg-03',
@@ -214,7 +248,9 @@ const PRODUCT_CATALOG = [
     price: 250,
     featured: false,
     image: 'assets/images/chicken-sausages.webp',
-    description: 'Classic lightly smoked chicken sausages that pan-sear in minutes for hearty breakfasts, hot dogs and pasta dishes.'
+    description: 'Classic lightly smoked chicken sausages that pan-sear in minutes for hearty breakfasts, hot dogs and pasta dishes.',
+    ingredients: 'Boneless chicken, water, soy protein, garlic, white pepper, nutmeg, natural smoke flavour and seasoning.',
+    prepInstructions: 'Thaw briefly or pan-sear directly over medium heat with light oil for 5–6 mins turning regularly until evenly browned.'
   },
   {
     id: 'nvg-04',
@@ -225,7 +261,9 @@ const PRODUCT_CATALOG = [
     price: 340,
     featured: false,
     image: 'assets/images/fish-fillets.webp',
-    description: 'Boneless, skinless white fish fillets neatly trimmed and portioned for pan-grilling, baking or homestyle fish curries.'
+    description: 'Boneless, skinless white fish fillets neatly trimmed and portioned for pan-grilling, baking or homestyle fish curries.',
+    ingredients: '100% boneless, skinless white fish fillets (individually quick-frozen, water-glazed for protection).',
+    prepInstructions: 'Thaw inside the refrigerator or sealed in cool water, pat dry, season as desired and pan-grill or bake for 6–10 mins until flaky.'
   },
   {
     id: 'nvg-05',
@@ -236,7 +274,9 @@ const PRODUCT_CATALOG = [
     price: 390,
     featured: false,
     image: 'assets/images/frozen-prawns.webp',
-    description: 'Cleaned, peeled and deveined medium prawns ready to thaw and cook in garlic butter, stir-fries, pasta or coastal curries.'
+    description: 'Cleaned, peeled and deveined medium prawns ready to thaw and cook in garlic butter, stir-fries, pasta or coastal curries.',
+    ingredients: '100% peeled and deveined medium prawns (individually quick-frozen with protective water glaze).',
+    prepInstructions: 'Thaw under chilled running water for 3–5 mins, drain well and sauté or simmer for 3–4 mins until opaque pink and tender.'
   }
 ];
 
@@ -265,15 +305,16 @@ function saveEnquiryCart(cart) {
   updateAllCartUI();
 }
 
-function addToEnquiryCart(productId, btnElement = null) {
+function addToEnquiryCart(productId, btnElement = null, quantity = 1) {
   const product = PRODUCT_CATALOG.find(item => item.id === productId);
   if (!product) return;
 
+  const qtyToAdd = Math.max(1, Number(quantity) || 1);
   const cart = getEnquiryCart();
   const existingIndex = cart.findIndex(item => item.id === productId);
 
   if (existingIndex > -1) {
-    cart[existingIndex].qty += 1;
+    cart[existingIndex].qty += qtyToAdd;
   } else {
     cart.push({
       id: product.id,
@@ -281,7 +322,7 @@ function addToEnquiryCart(productId, btnElement = null) {
       category: product.category,
       packSize: product.packSize,
       price: product.price,
-      qty: 1
+      qty: qtyToAdd
     });
   }
 
@@ -444,9 +485,14 @@ function createProductCardHTML(product) {
               <span class="demo-price-tag">Sample Price</span>
             </div>
           </div>
-          <button type="button" class="btn-brand-primary btn-add-enquiry" data-add-enquiry="${product.id}" aria-label="Add ${product.name} to Enquiry">
-            <i class="bi bi-plus-circle"></i> Add to Enquiry
-          </button>
+          <div class="product-card-actions">
+            <button type="button" class="btn-brand-secondary btn-card-details" data-view-details="${product.id}" aria-label="View details for ${product.name}">
+              Details
+            </button>
+            <button type="button" class="btn-brand-primary btn-add-enquiry" data-add-enquiry="${product.id}" aria-label="Quick Order or Enquiry for ${product.name}">
+              <i class="bi bi-plus-circle"></i> Quick Enquiry
+            </button>
+          </div>
         </div>
       </div>
     </article>
@@ -581,6 +627,113 @@ function initProductsCatalogPage() {
 
   syncFilterButtonStates();
   renderFilteredProducts();
+  initProductDetailsSection(urlParams.get('product'));
+}
+
+/* ==========================================================================
+   6B. PRODUCTS PAGE — PRODUCT DETAILS PANEL (INGREDIENTS, QUANTITY, PREP)
+   ========================================================================== */
+function initProductDetailsSection(initialProductId = null) {
+  const detailsSection = document.getElementById('product-details-section');
+  if (!detailsSection) return;
+
+  const detailSelect = document.getElementById('productDetailSelect');
+  const imgEl = document.getElementById('detailProductImage');
+  const categoryEl = document.getElementById('detailProductCategory');
+  const dietEl = document.getElementById('detailProductDiet');
+  const titleEl = document.getElementById('detailProductTitle');
+  const priceEl = document.getElementById('detailProductPrice');
+  const descEl = document.getElementById('detailProductDesc');
+  const ingredientsEl = document.getElementById('detailProductIngredients');
+  const quantityEl = document.getElementById('detailProductQuantity');
+  const prepEl = document.getElementById('detailProductPrep');
+  const qtyDecBtn = document.getElementById('detailQtyDec');
+  const qtyIncBtn = document.getElementById('detailQtyInc');
+  const qtyValEl = document.getElementById('detailQtyVal');
+  const addBtn = document.getElementById('detailAddToCartBtn');
+  const quickEnquiryBtn = document.getElementById('detailQuickEnquiryBtn');
+
+  let currentProductId = PRODUCT_CATALOG[0].id;
+  if (initialProductId && PRODUCT_CATALOG.some(p => p.id === initialProductId)) {
+    currentProductId = initialProductId;
+  }
+  let selectedQty = 1;
+
+  if (detailSelect) {
+    detailSelect.innerHTML = PRODUCT_CATALOG.map(p => (
+      `<option value="${p.id}">${p.name} (${p.category} • ${p.packSize})</option>`
+    )).join('');
+  }
+
+  function renderSelectedDetail(productId) {
+    const product = PRODUCT_CATALOG.find(p => p.id === productId) || PRODUCT_CATALOG[0];
+    currentProductId = product.id;
+    selectedQty = 1;
+    if (qtyValEl) qtyValEl.textContent = '1';
+    if (detailSelect) detailSelect.value = product.id;
+
+    if (imgEl) {
+      imgEl.src = product.image;
+      imgEl.alt = `${product.name} - ${product.category} (${product.packSize})`;
+    }
+    if (categoryEl) categoryEl.textContent = product.category;
+    if (dietEl) {
+      const isVeg = product.diet === 'veg';
+      dietEl.className = `diet-indicator ${isVeg ? 'is-veg' : 'is-nonveg'}`;
+      dietEl.innerHTML = `<span class="diet-dot" aria-hidden="true"></span>${isVeg ? 'Veg' : 'Non-Veg'}`;
+    }
+    if (titleEl) titleEl.textContent = product.name;
+    if (priceEl) priceEl.textContent = `₹${product.price}`;
+    if (descEl) descEl.textContent = product.description;
+    if (ingredientsEl) ingredientsEl.textContent = product.ingredients;
+    if (quantityEl) quantityEl.textContent = `${product.packSize} per pack (choose pack quantity below)`;
+    if (prepEl) prepEl.textContent = product.prepInstructions;
+  }
+
+  window.selectProductDetail = function (productId, scrollIntoView = false) {
+    renderSelectedDetail(productId);
+    if (scrollIntoView) {
+      detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  if (detailSelect) {
+    detailSelect.addEventListener('change', (e) => {
+      renderSelectedDetail(e.target.value);
+    });
+  }
+
+  if (qtyDecBtn && qtyValEl) {
+    qtyDecBtn.addEventListener('click', () => {
+      selectedQty = Math.max(1, selectedQty - 1);
+      qtyValEl.textContent = String(selectedQty);
+    });
+  }
+
+  if (qtyIncBtn && qtyValEl) {
+    qtyIncBtn.addEventListener('click', () => {
+      selectedQty = Math.min(25, selectedQty + 1);
+      qtyValEl.textContent = String(selectedQty);
+    });
+  }
+
+  if (addBtn) {
+    addBtn.addEventListener('click', () => {
+      addToEnquiryCart(currentProductId, addBtn, selectedQty);
+    });
+  }
+
+  if (quickEnquiryBtn) {
+    quickEnquiryBtn.addEventListener('click', () => {
+      const cart = getEnquiryCart();
+      const exists = cart.some(item => item.id === currentProductId);
+      if (!exists) {
+        addToEnquiryCart(currentProductId, null, selectedQty);
+      }
+    });
+  }
+
+  renderSelectedDetail(currentProductId);
 }
 
 /* ==========================================================================
@@ -782,16 +935,37 @@ function initGlobalUI() {
   const headerSearchBar = document.getElementById('headerSearchBar');
   const headerSearchForm = document.getElementById('headerSearchForm');
   const headerSearchInput = document.getElementById('headerSearchInput');
+  const drawerSearchToggleBtn = document.querySelector('[data-toggle-drawer-search]');
+  const mobileDrawerSearchBar = document.getElementById('mobileDrawerSearchBar');
+  const backToTopBtn = document.getElementById('backToTopBtn');
 
-  // Sticky Header Scroll State
-  window.addEventListener('scroll', () => {
-    if (!siteHeader) return;
-    if (window.scrollY > 24) {
-      siteHeader.classList.add('is-scrolled');
-    } else {
-      siteHeader.classList.remove('is-scrolled');
+  // Sticky Header & Back-to-Top Scroll State
+  function updateScrollUI() {
+    if (siteHeader) {
+      if (window.scrollY > 24) {
+        siteHeader.classList.add('is-scrolled');
+      } else {
+        siteHeader.classList.remove('is-scrolled');
+      }
     }
-  }, { passive: true });
+    if (backToTopBtn) {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('is-visible');
+      } else {
+        backToTopBtn.classList.remove('is-visible');
+      }
+    }
+  }
+
+  updateScrollUI();
+  window.addEventListener('scroll', updateScrollUI, { passive: true });
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    });
+  }
 
   function closeAllDrawers() {
     if (mobileDrawer) {
@@ -807,6 +981,12 @@ function initGlobalUI() {
     }
     if (sharedBackdrop) {
       sharedBackdrop.classList.remove('is-open');
+    }
+    if (mobileDrawerSearchBar) {
+      mobileDrawerSearchBar.classList.remove('is-open');
+    }
+    if (drawerSearchToggleBtn) {
+      drawerSearchToggleBtn.setAttribute('aria-expanded', 'false');
     }
     document.body.style.overflow = '';
   }
@@ -892,6 +1072,18 @@ function initGlobalUI() {
     });
   }
 
+  // Drawer Search Bar Toggle
+  if (drawerSearchToggleBtn && mobileDrawerSearchBar) {
+    drawerSearchToggleBtn.addEventListener('click', () => {
+      const isOpen = mobileDrawerSearchBar.classList.toggle('is-open');
+      drawerSearchToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (isOpen) {
+        const inputEl = mobileDrawerSearchBar.querySelector('input[type="search"]');
+        if (inputEl) setTimeout(() => inputEl.focus(), 100);
+      }
+    });
+  }
+
   document.querySelectorAll('[data-drawer-search-form]').forEach(drawerForm => {
     drawerForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -920,8 +1112,19 @@ function initGlobalUI() {
     }
   });
 
-  // Global Event Delegation for Add-to-Enquiry and Cart Quantity buttons
+  // Global Event Delegation for View-Details, Add-to-Enquiry and Cart Quantity buttons
   document.addEventListener('click', (e) => {
+    const detailBtn = e.target.closest('[data-view-details]');
+    if (detailBtn) {
+      const productId = detailBtn.getAttribute('data-view-details');
+      if (typeof window.selectProductDetail === 'function') {
+        window.selectProductDetail(productId, true);
+      } else {
+        window.location.href = `products.html?product=${encodeURIComponent(productId)}#product-details-section`;
+      }
+      return;
+    }
+
     const addBtn = e.target.closest('[data-add-enquiry]');
     if (addBtn) {
       const productId = addBtn.getAttribute('data-add-enquiry');

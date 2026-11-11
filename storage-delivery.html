@@ -59,7 +59,12 @@
           </button>
 
           <button type="button" class="icon-action-btn" id="rtlToggleBtn" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout direction" title="Toggle RTL / LTR">
-            <span class="rtl-badge-text">RTL</span>
+            <svg class="rtl-toggle-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 7h16"/>
+              <path d="M16 3.5 20 7l-4 3.5"/>
+              <path d="M20 17H4"/>
+              <path d="M8 13.5 4 17l4 3.5"/>
+            </svg>
           </button>
 
           <button type="button" class="icon-action-btn" id="themeToggleBtn" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme" title="Toggle Dark / Light Mode">
@@ -95,45 +100,60 @@
 
   <!-- Mobile Navigation Drawer -->
   <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true" aria-label="Mobile Navigation">
-    <div>
-      <div class="mobile-drawer-header">
-        <span class="fw-bold" style="font-family: var(--font-heading); color: var(--navy-primary);">STORE NAVIGATION</span>
-        <button type="button" class="drawer-close-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
-          <i class="bi bi-x-lg"></i>
-        </button>
-      </div>
-      <div class="mobile-drawer-tools">
-        <form class="mobile-drawer-search-form" data-drawer-search-form role="search">
-          <input type="search" class="mobile-drawer-search-input" placeholder="Search frozen foods..." aria-label="Search frozen food products">
-          <button type="submit" class="btn-brand-primary py-2 px-3" aria-label="Submit search"><i class="bi bi-search"></i></button>
-        </form>
-        <div class="mobile-drawer-actions-grid">
-          <button type="button" class="mobile-drawer-action-item" data-open-cart aria-label="Open Enquiry Cart">
-            <i class="bi bi-bag-check"></i>
-            <span>Cart</span>
-            <span class="cart-count-badge">0</span>
+    <div class="mobile-drawer-header">
+      <span class="fw-bold" style="font-family: var(--font-heading); color: var(--navy-primary);">STORE NAVIGATION</span>
+      <button type="button" class="drawer-close-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="nav-link-item">Home</a></li>
+        <li><a href="home-2.html" class="nav-link-item">Home 2</a></li>
+        <li><a href="products.html" class="nav-link-item">Products</a></li>
+        <li><a href="storage-delivery.html" class="nav-link-item active" aria-current="page">Storage &amp; Delivery</a></li>
+        <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-controls">
+        <div class="mobile-drawer-icon-row">
+          <button type="button" class="icon-action-btn" id="drawerSearchToggleBtn" data-toggle-drawer-search aria-expanded="false" aria-controls="mobileDrawerSearchBar" aria-label="Toggle product search" title="Search Products">
+            <i class="bi bi-search"></i>
           </button>
-          <button type="button" class="mobile-drawer-action-item" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme">
-            <i class="bi bi-moon-stars"></i>
-            <span>Theme</span>
-          </button>
-          <button type="button" class="mobile-drawer-action-item" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout">
-            <span class="rtl-badge-text">RTL</span>
+
+          <button type="button" class="icon-action-btn" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout direction" title="Toggle RTL / LTR">
+            <svg class="rtl-toggle-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 7h16"/>
+              <path d="M16 3.5 20 7l-4 3.5"/>
+              <path d="M20 17H4"/>
+              <path d="M8 13.5 4 17l4 3.5"/>
+            </svg>
           </button>
         </div>
+
+        <div class="mobile-drawer-search-bar" id="mobileDrawerSearchBar">
+          <form class="mobile-drawer-search-form" data-drawer-search-form role="search">
+            <input type="search" class="mobile-drawer-search-input" placeholder="Search frozen foods..." aria-label="Search frozen food products">
+            <button type="submit" class="btn-brand-primary py-2 px-3" aria-label="Submit search"><i class="bi bi-search"></i></button>
+          </form>
+        </div>
+
+        <div class="mobile-drawer-icon-row">
+          <button type="button" class="icon-action-btn" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme" title="Toggle Dark / Light Mode">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" data-open-cart aria-label="Open Enquiry Cart" title="Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span class="cart-count-badge">0</span>
+          </button>
+        </div>
+
+        <div class="mobile-drawer-cta-wrap">
+          <a href="contact.html" class="btn-brand-primary mobile-drawer-cta">Order Enquiry</a>
+        </div>
       </div>
-      <ul class="mobile-nav-links">
-        <li><a href="index.html"><span>Home</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="home-2.html"><span>Home 2</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="products.html"><span>Products</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="storage-delivery.html" class="active"><span>Storage &amp; Delivery</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="contact.html"><span>Contact</span> <i class="bi bi-chevron-right"></i></a></li>
-        <li><a href="contact.html"><span>Order Enquiry</span> <i class="bi bi-arrow-up-right-circle"></i></a></li>
-      </ul>
-    </div>
-    <div class="mobile-drawer-footer">
-      <p class="small mb-2 fw-semibold" style="color: var(--navy-primary);">FRESH CONVENIENCE. FROZEN PERFECTION.</p>
-      <a href="products.html" class="btn-brand-primary w-100">Explore Frozen Range</a>
     </div>
   </aside>
 
@@ -172,10 +192,10 @@
          ====================================================================== -->
     <section class="page-hero-banner" aria-labelledby="storage-hero-heading">
       <div class="container">
-        <span class="eyebrow-badge"><i class="bi bi-thermometer-snow"></i> Customer Care &amp; Handling Guide</span>
-        <h1 id="storage-hero-heading">PROPER STORAGE. BETTER FOOD HANDLING.</h1>
+        <span class="eyebrow-badge"><i class="bi bi-thermometer-snow"></i> Storage &amp; Delivery Information</span>
+        <h1 id="storage-hero-heading">STORAGE &amp; DELIVERY INFORMATION.</h1>
         <p>
-          Simple information to help you store frozen products correctly and understand our delivery process.
+          Proper storage, freezing guidelines, preparation instructions, protective packaging and local delivery process&mdash;all in one guide.
         </p>
       </div>
     </section>
@@ -290,9 +310,102 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 3 – PRODUCT HANDLING
+         SECTION 3 – FREEZING GUIDELINES (RECOMMENDED STORAGE CONDITIONS)
          ====================================================================== -->
-    <section class="section-block section-bg-white reveal-on-scroll" aria-labelledby="product-handling-heading">
+    <section id="freezing-guidelines" class="section-block section-bg-white reveal-on-scroll" aria-labelledby="freezing-guidelines-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto" style="max-width: 680px;">
+          <span class="eyebrow-badge"><i class="bi bi-thermometer-low"></i> Freezing Guidelines</span>
+          <h2 id="freezing-guidelines-heading">RECOMMENDED STORAGE CONDITIONS.</h2>
+          <p class="mb-0">
+            Keep your frozen snacks, parathas, vegetables and ready-to-cook meats under steady freezer conditions to lock in freshness and texture.
+          </p>
+        </div>
+
+        <div class="prep-guide-grid mt-4 pt-2">
+          <!-- Condition 1 -->
+          <div class="prep-guide-card">
+            <div>
+              <div class="prep-card-header">
+                <div class="prep-icon-box" aria-hidden="true">
+                  <i class="bi bi-thermometer-snow"></i>
+                </div>
+                <span class="prep-temp-badge">-18&deg;C / 0&deg;F</span>
+              </div>
+              <h3 class="prep-card-title">Deep-Freeze Temperature</h3>
+              <p class="prep-card-desc">
+                Store products continuously at -18&deg;C or below inside a dedicated freezer compartment so items remain firmly frozen until cooking.
+              </p>
+            </div>
+            <div class="prep-meta-tag">
+              <i class="bi bi-check2-circle"></i> Steady Freezer Zone
+            </div>
+          </div>
+
+          <!-- Condition 2 -->
+          <div class="prep-guide-card">
+            <div>
+              <div class="prep-card-header">
+                <div class="prep-icon-box" aria-hidden="true">
+                  <i class="bi bi-clock-history"></i>
+                </div>
+                <span class="prep-temp-badge">15&ndash;20 Mins</span>
+              </div>
+              <h3 class="prep-card-title">Prompt Freezer Transfer</h3>
+              <p class="prep-card-desc">
+                Place packs into your home freezer promptly after store pickup or handover rather than leaving bags at room temperature.
+              </p>
+            </div>
+            <div class="prep-meta-tag">
+              <i class="bi bi-check2-circle"></i> Zero Surface Thaw
+            </div>
+          </div>
+
+          <!-- Condition 3 -->
+          <div class="prep-guide-card">
+            <div>
+              <div class="prep-card-header">
+                <div class="prep-icon-box" aria-hidden="true">
+                  <i class="bi bi-wind"></i>
+                </div>
+                <span class="prep-temp-badge">Middle / Back Shelf</span>
+              </div>
+              <h3 class="prep-card-title">Avoid Door-Shelf Warmth</h3>
+              <p class="prep-card-desc">
+                Keep packs away from freezer door racks where frequent opening causes temperature swings and ice crystal buildup on food.
+              </p>
+            </div>
+            <div class="prep-meta-tag">
+              <i class="bi bi-check2-circle"></i> Prevent Freezer Burn
+            </div>
+          </div>
+
+          <!-- Condition 4 -->
+          <div class="prep-guide-card">
+            <div>
+              <div class="prep-card-header">
+                <div class="prep-icon-box" aria-hidden="true">
+                  <i class="bi bi-calendar2-check"></i>
+                </div>
+                <span class="prep-temp-badge">FIFO Rotation</span>
+              </div>
+              <h3 class="prep-card-title">Check Best-Before Dates</h3>
+              <p class="prep-card-desc">
+                Keep newer packs behind older ones, seal partial pouches tightly and never refreeze products once fully thawed.
+              </p>
+            </div>
+            <div class="prep-meta-tag">
+              <i class="bi bi-check2-circle"></i> Follow Label Shelf Life
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 4 – PRODUCT HANDLING
+         ====================================================================== -->
+    <section class="section-block section-bg-ice reveal-on-scroll" aria-labelledby="product-handling-heading">
       <div class="container">
         <div class="row align-items-center g-4 g-lg-5">
           <div class="col-lg-5">
@@ -355,7 +468,162 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 4 – DELIVERY INFORMATION (4 STEPS + EDITABLE PLACEHOLDERS)
+         SECTION 5 – PREPARATION INSTRUCTIONS (HOW TO COOK OR HEAT PRODUCTS)
+         ====================================================================== -->
+    <section id="preparation-instructions" class="section-block section-bg-mint reveal-on-scroll" aria-labelledby="storage-prep-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto" style="max-width: 680px;">
+          <span class="eyebrow-badge"><i class="bi bi-fire"></i> Preparation Instructions</span>
+          <h2 id="storage-prep-heading">HOW TO COOK OR HEAT PRODUCTS.</h2>
+          <p class="mb-0">
+            Most FROZIO items cook straight from the freezer in minutes. Always verify exact times and temperature notes printed on your pack.
+          </p>
+        </div>
+
+        <div class="prep-guide-grid mt-4 pt-2">
+          <!-- Method 1: Air Fryer -->
+          <div class="prep-guide-card">
+            <div>
+              <div class="prep-card-header">
+                <div class="prep-icon-box" aria-hidden="true">
+                  <i class="bi bi-wind"></i>
+                </div>
+                <span class="prep-temp-badge">180&deg;C &bull; 8&ndash;12 Mins</span>
+              </div>
+              <h3 class="prep-card-title">Air Fryer Crisping</h3>
+              <p class="prep-card-desc">
+                Preheat basket and arrange frozen samosas, nuggets, spring rolls or cutlets in a single layer; shake halfway for even golden crispness.
+              </p>
+            </div>
+            <div class="prep-meta-tag">
+              <i class="bi bi-check2-circle"></i> Cook Straight from Frozen
+            </div>
+          </div>
+
+          <!-- Method 2: Pan / Tawa -->
+          <div class="prep-guide-card">
+            <div>
+              <div class="prep-card-header">
+                <div class="prep-icon-box" aria-hidden="true">
+                  <i class="bi bi-disc"></i>
+                </div>
+                <span class="prep-temp-badge">Medium Heat &bull; 3&ndash;5 Mins</span>
+              </div>
+              <h3 class="prep-card-title">Tawa &amp; Skillet Heating</h3>
+              <p class="prep-card-desc">
+                Place frozen parathas or kebabs directly onto a preheated pan, lightly brush oil or ghee and flip until golden brown on both sides.
+              </p>
+            </div>
+            <div class="prep-meta-tag">
+              <i class="bi bi-check2-circle"></i> Ideal for Parathas &amp; Kebabs
+            </div>
+          </div>
+
+          <!-- Method 3: Deep Fry -->
+          <div class="prep-guide-card">
+            <div>
+              <div class="prep-card-header">
+                <div class="prep-icon-box" aria-hidden="true">
+                  <i class="bi bi-droplet-half"></i>
+                </div>
+                <span class="prep-temp-badge">175&deg;C &bull; 4&ndash;6 Mins</span>
+              </div>
+              <h3 class="prep-card-title">Golden Deep Frying</h3>
+              <p class="prep-card-desc">
+                Gently lower frozen cheese balls, wedges or crispy strips into hot oil in small batches without overcrowding until piping hot inside.
+              </p>
+            </div>
+            <div class="prep-meta-tag">
+              <i class="bi bi-check2-circle"></i> Drain &amp; Serve Hot
+            </div>
+          </div>
+
+          <!-- Method 4: Simmer & Steam -->
+          <div class="prep-guide-card">
+            <div>
+              <div class="prep-card-header">
+                <div class="prep-icon-box" aria-hidden="true">
+                  <i class="bi bi-cup-hot"></i>
+                </div>
+                <span class="prep-temp-badge">Direct Cook &bull; 3&ndash;4 Mins</span>
+              </div>
+              <h3 class="prep-card-title">Steaming &amp; Simmering</h3>
+              <p class="prep-card-desc">
+                Add flash-frozen green peas, sweet corn, mixed vegetables or prawns directly into simmering gravies, soups or boiling water.
+              </p>
+            </div>
+            <div class="prep-meta-tag">
+              <i class="bi bi-check2-circle"></i> Pre-Cleaned &amp; Portioned
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 6 – PACKAGING INFORMATION (PRODUCT PACKAGING & FRESHNESS)
+         ====================================================================== -->
+    <section id="packaging-info" class="section-block section-bg-white reveal-on-scroll" aria-labelledby="packaging-info-heading">
+      <div class="container">
+        <div class="quality-guarantee-wrap">
+          <div class="quality-visual-frame">
+            <img src="assets/images/frozen-packaging.webp" alt="Sealed multi-layer retail frozen food packs engineered to protect freshness and prevent freezer burn" loading="lazy" width="800" height="800">
+            <div class="quality-visual-badge">
+              <i class="bi bi-box-seam-fill fs-2" style="color: var(--lime-accent);"></i>
+              <div>
+                <strong>-18&deg;C Freshness-Lock Packaging</strong>
+                <span>Food-grade multi-layer barrier pouches built for home freezers.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span class="eyebrow-badge mb-2"><i class="bi bi-box-seam"></i> Packaging Information</span>
+            <h2 id="packaging-info-heading" class="mb-3">PRODUCT PACKAGING &amp; FRESHNESS PROTECTION.</h2>
+            <p class="mb-4">
+              Every FROZIO retail pack is sealed at peak quality to protect flavour, block moisture loss and keep kitchen handling simple from store to freezer.
+            </p>
+
+            <div class="quality-feature-list">
+              <div class="quality-feature-box">
+                <div class="quality-feature-icon" aria-hidden="true">
+                  <i class="bi bi-layers"></i>
+                </div>
+                <h4>Multi-Layer Barrier Film</h4>
+                <p>Food-grade laminated pouches lock out freezer air, frost crystals and outside odour transfer.</p>
+              </div>
+
+              <div class="quality-feature-box">
+                <div class="quality-feature-icon" aria-hidden="true">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <h4>Tamper-Evident Heat Seals</h4>
+                <p>Tight factory heat sealing preserves hygiene and ensures every pack arrives intact and uncompromised.</p>
+              </div>
+
+              <div class="quality-feature-box">
+                <div class="quality-feature-icon" aria-hidden="true">
+                  <i class="bi bi-card-text"></i>
+                </div>
+                <h4>Clear Care &amp; Prep Labels</h4>
+                <p>Net weight, veg/non-veg symbols, storage temperatures, cooking steps and best-before dates are clearly printed.</p>
+              </div>
+
+              <div class="quality-feature-box">
+                <div class="quality-feature-icon" aria-hidden="true">
+                  <i class="bi bi-snow2"></i>
+                </div>
+                <h4>Insulated Handover Packs</h4>
+                <p>Orders are packed carefully in insulated dispatch bags for local delivery so packs stay cold until freezer storage.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 7 – DELIVERY INFORMATION (4 STEPS + EDITABLE PLACEHOLDERS)
          ====================================================================== -->
     <section id="delivery-info" class="section-block section-bg-ice reveal-on-scroll" aria-labelledby="delivery-info-heading">
       <div class="container">
@@ -561,16 +829,16 @@
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
           <a href="index.html" class="brand-logo mb-3">
-            <span class="brand-logo-mark" style="background-color: var(--mint-secondary); color: #FFFFFF;" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <span class="brand-logo-mark" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
               </svg>
             </span>
             <span class="brand-logo-text">
-              <span class="brand-logo-title text-white">FROZIO</span>
+              <span class="brand-logo-title">FROZIO</span>
             </span>
           </a>
-          <p class="small mb-3" style="color: rgba(255,255,255,0.8); max-width: 340px;">
+          <p class="small mb-3" style="max-width: 340px;">
             Delicious meals, made easier with quality frozen favourites. Explore our retail collection of crispy snacks, flaky parathas, flash-frozen vegetables and non-vegetarian essentials.
           </p>
           <div class="contact-social-links" aria-label="Social Media Links">
@@ -627,12 +895,16 @@
       <div class="footer-bottom">
         <div>&copy; 2026 FROZIO. All rights reserved.</div>
         <div class="d-flex gap-3">
-          <a href="storage-delivery.html#faq-section" class="text-white-50">Privacy Policy (Placeholder)</a>
-          <a href="storage-delivery.html#faq-section" class="text-white-50">Terms of Use (Placeholder)</a>
+          <a href="storage-delivery.html#faq-section">Privacy Policy (Placeholder)</a>
+          <a href="storage-delivery.html#faq-section">Terms of Use (Placeholder)</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <button type="button" class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to Top">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
 
   <script src="assets/js/main.js"></script>
 </body>
