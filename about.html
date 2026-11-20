@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | FROZIO - Fresh Convenience, Frozen Perfection</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Learn about FROZIO: our culinary journey, company history, mission, vision, and core quality values delivering ready-to-cook frozen foods across India.">
+  <meta property="og:title" content="About Us | FROZIO">
+  <meta property="og:description" content="Discover FROZIO's story: premium ready-to-cook frozen foods, authentic recipes, and unbroken -18°C cold-chain excellence.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/about-company.jpg">
+
+  <!-- Google Fonts: Outfit (Headings) & DM Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Global Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       GLOBAL STICKY HEADER
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <!-- LEFT: Brand Logo & Wordmark -->
+        <a href="index.html" class="brand-logo" aria-label="FROZIO Home">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
+            </svg>
+          </span>
+          <span class="brand-logo-text">
+            <span class="brand-logo-title">FROZIO</span>
+          </span>
+        </a>
+
+        <!-- CENTER: Primary Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link-item">Home</a></li>
+            <li><a href="home-2.html" class="nav-link-item">Home 2</a></li>
+            <li><a href="about.html" class="nav-link-item active" aria-current="page">About</a></li>
+            <li><a href="products.html" class="nav-link-item">Products</a></li>
+            <li><a href="storage-delivery.html" class="nav-link-item">Storage &amp; Delivery</a></li>
+            <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- RIGHT: Search, RTL Toggle, Theme Toggle, Enquiry Cart & Order Enquiry CTA -->
+        <div class="header-actions">
+          <button type="button" class="icon-action-btn" id="headerSearchToggleBtn" aria-expanded="false" aria-controls="headerSearchBar" aria-label="Toggle product search" title="Search Products">
+            <i class="bi bi-search"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" id="rtlToggleBtn" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout direction" title="Toggle RTL / LTR">
+            <svg class="rtl-toggle-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 7h16"/>
+              <path d="M16 3.5 20 7l-4 3.5"/>
+              <path d="M20 17H4"/>
+              <path d="M8 13.5 4 17l4 3.5"/>
+            </svg>
+          </button>
+
+          <button type="button" class="icon-action-btn" id="themeToggleBtn" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme" title="Toggle Dark / Light Mode">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" data-open-cart aria-label="Open Enquiry Cart" title="Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span class="cart-count-badge" id="cartCountBadge">0</span>
+          </button>
+
+          <a href="contact.html" class="btn-brand-primary header-cta-desktop">Order Enquiry</a>
+
+          <button type="button" class="hamburger-btn" id="mobileMenuOpenBtn" aria-expanded="false" aria-controls="mobileNavDrawer" aria-label="Open navigation menu">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapsible Quick Search Bar -->
+    <div class="header-search-bar" id="headerSearchBar">
+      <div class="container">
+        <form class="header-search-form" id="headerSearchForm" role="search">
+          <label for="headerSearchInput" class="visually-hidden">Search frozen food products</label>
+          <input type="search" id="headerSearchInput" class="header-search-input" placeholder="Search samosas, parathas, green peas, chicken nuggets...">
+          <button type="submit" class="btn-brand-primary py-2 px-3">Search</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Shared Backdrop for Mobile Menu & Enquiry Cart Drawer -->
+  <div class="mobile-nav-backdrop" id="sharedOverlayBackdrop"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <span class="fw-bold" style="font-family: var(--font-heading); color: var(--navy-primary);">STORE NAVIGATION</span>
+      <button type="button" class="drawer-close-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="nav-link-item">Home</a></li>
+        <li><a href="home-2.html" class="nav-link-item">Home 2</a></li>
+        <li><a href="about.html" class="nav-link-item active" aria-current="page">About</a></li>
+        <li><a href="products.html" class="nav-link-item">Products</a></li>
+        <li><a href="storage-delivery.html" class="nav-link-item">Storage &amp; Delivery</a></li>
+        <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-controls">
+        <div class="mobile-drawer-icon-row">
+          <button type="button" class="icon-action-btn" id="drawerSearchToggleBtn" data-toggle-drawer-search aria-expanded="false" aria-controls="mobileDrawerSearchBar" aria-label="Toggle product search" title="Search Products">
+            <i class="bi bi-search"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" data-toggle-rtl aria-pressed="false" aria-label="Toggle RTL or LTR layout direction" title="Toggle RTL / LTR">
+            <svg class="rtl-toggle-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 7h16"/>
+              <path d="M16 3.5 20 7l-4 3.5"/>
+              <path d="M20 17H4"/>
+              <path d="M8 13.5 4 17l4 3.5"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="mobile-drawer-search-bar" id="mobileDrawerSearchBar">
+          <form class="mobile-drawer-search-form" data-drawer-search-form role="search">
+            <input type="search" class="mobile-drawer-search-input" placeholder="Search frozen foods..." aria-label="Search frozen food products">
+            <button type="submit" class="btn-brand-primary py-2 px-3" aria-label="Submit search"><i class="bi bi-search"></i></button>
+          </form>
+        </div>
+
+        <div class="mobile-drawer-icon-row">
+          <button type="button" class="icon-action-btn" data-toggle-theme aria-pressed="false" aria-label="Toggle dark or light theme" title="Toggle Dark / Light Mode">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <button type="button" class="icon-action-btn" data-open-cart aria-label="Open Enquiry Cart" title="Enquiry Cart">
+            <i class="bi bi-bag-check"></i>
+            <span class="cart-count-badge">0</span>
+          </button>
+        </div>
+
+        <div class="mobile-drawer-cta-wrap">
+          <a href="contact.html" class="btn-brand-primary mobile-drawer-cta">Order Enquiry</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Enquiry Cart Slide-Over Drawer -->
+  <aside class="enquiry-cart-drawer" id="enquiryCartDrawer" aria-hidden="true" aria-label="Product Enquiry List">
+    <div class="cart-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-bag-check-fill" style="color: var(--mint-secondary); font-size: 1.2rem;"></i>
+        <h3>Product Enquiry List</h3>
+      </div>
+      <button type="button" class="drawer-close-btn" id="enquiryCartCloseBtn" aria-label="Close enquiry cart">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-body" id="enquiryCartBody"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-line">
+        <span class="text-muted small">Selected Quantity:</span>
+        <strong id="enquiryCartCount">0 Packs</strong>
+      </div>
+      <div class="cart-summary-line mb-2">
+        <span class="text-muted small">Estimated Sample Total:</span>
+        <strong id="enquiryCartTotal" style="font-size: 1.15rem; color: var(--navy-primary);">₹0</strong>
+      </div>
+      <p class="small text-muted mb-3" style="font-size: 0.75rem;">*Sample prices are for demonstration only. Submit an enquiry to confirm current store availability.</p>
+      <div class="d-grid gap-2">
+        <a href="contact.html?prefill=cart" id="sendEnquiryCartBtn" class="btn-brand-primary">SEND PRODUCT ENQUIRY</a>
+        <button type="button" id="clearEnquiryCartBtn" class="btn-brand-secondary py-2" style="font-size: 0.8rem;">Clear Enquiry List</button>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!-- ======================================================================
+         PAGE HERO BANNER
+         ====================================================================== -->
+    <section class="page-hero-banner page-hero-banner--about" aria-labelledby="about-hero-heading">
+      <div class="container">
+        <span class="eyebrow-badge"><i class="bi bi-shield-check"></i> Discover FROZIO</span>
+        <h1 id="about-hero-heading">AUTHENTIC FLAVOURS. REVOLUTIONARY FRESHNESS.</h1>
+        <p>
+          We bring restaurant-quality taste, home-kitchen warmth, and zero-prep convenience to your dining table through advanced -18°C Individual Quick Freezing technology.
+        </p>
+      </div>
+    </section>
+
+    <!-- Quick Trust Stat Strip -->
+    <section class="about-stats-section section-bg-ice" aria-label="FROZIO Key Highlights">
+      <div class="container">
+        <div class="about-stats-grid">
+          <div class="about-stat-card">
+            <span class="about-stat-number">50+</span>
+            <span class="about-stat-label">Ready-to-Cook Items</span>
+          </div>
+          <div class="about-stat-card">
+            <span class="about-stat-number">-18°C</span>
+            <span class="about-stat-label">Monitored Cold Chain</span>
+          </div>
+          <div class="about-stat-card">
+            <span class="about-stat-number">100%</span>
+            <span class="about-stat-label">Preservative-Free Quality</span>
+          </div>
+          <div class="about-stat-card">
+            <span class="about-stat-number">15,000+</span>
+            <span class="about-stat-label">Happy Home Kitchens</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 1: ABOUT THE COMPANY (COMPULSORY SECTION 1)
+         ====================================================================== -->
+    <section id="about-company" class="section-block section-bg-white reveal-on-scroll" aria-labelledby="about-company-heading">
+      <div class="container">
+        <div class="about-split-wrap">
+          <!-- Text Column -->
+          <div>
+            <span class="eyebrow-badge mb-2"><i class="bi bi-building-check"></i> About The Company</span>
+            <h2 id="about-company-heading" class="mb-3">WE BELIEVE NOURISHING HOME MEALS SHOULD BE EFFORTLESS.</h2>
+            <p class="lead-text mb-3" style="font-size: 1.05rem; color: var(--mint-hover); font-weight: 600;">
+              Bridging the gap between busy modern routines and genuine homestyle food.
+            </p>
+            <p class="mb-4">
+              FROZIO is a modern ready-to-cook frozen food brand founded on a simple insight: families want wholesome, authentic, and delicious meals without spending hours peeling, chopping, kneading, or cleaning up. Our products go straight from your freezer to your tawa, pan, or air-fryer in 5 to 10 minutes—delivering piping-hot golden crunch, flaky ribbon layers, and peak garden-fresh tenderness every single time.
+            </p>
+
+            <div class="about-highlights-list">
+              <div class="p-3 mb-2 rounded border bg-light d-flex align-items-start gap-3">
+                <i class="bi bi-flower1 fs-4" style="color: var(--mint-hover);"></i>
+                <div>
+                  <strong class="d-block" style="color: var(--navy-primary); font-family: var(--font-heading);">Farm-Direct Sourcing</strong>
+                  <span class="small text-secondary">Tender green peas, sweet corn, and garden vegetables harvested at peak ripeness and processed within hours.</span>
+                </div>
+              </div>
+
+              <div class="p-3 mb-2 rounded border bg-light d-flex align-items-start gap-3">
+                <i class="bi bi-award fs-4" style="color: var(--mint-hover);"></i>
+                <div>
+                  <strong class="d-block" style="color: var(--navy-primary); font-family: var(--font-heading);">Master Chef Formulations</strong>
+                  <span class="small text-secondary">Authentic regional seasonings crafted by culinary experts so every samosa, paratha, and cutlet tastes freshly handmade.</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded border bg-light d-flex align-items-start gap-3">
+                <i class="bi bi-shield-lock fs-4" style="color: var(--mint-hover);"></i>
+                <div>
+                  <strong class="d-block" style="color: var(--navy-primary); font-family: var(--font-heading);">Clean Food Standards</strong>
+                  <span class="small text-secondary">Zero chemical preservatives, zero trans fats, and zero artificial dyes. Certified FSSAI and HACCP compliant processing.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Column -->
+          <div class="quality-visual-frame">
+            <img src="assets/images/about-company.jpg" alt="FROZIO test kitchen chefs inspecting fresh vegetables and samosas with state of the art flash freezing equipment" loading="lazy" width="800" height="600">
+            <div class="quality-visual-badge">
+              <i class="bi bi-patch-check-fill fs-2" style="color: var(--lime-accent);"></i>
+              <div>
+                <strong>Certified Food Safety Standards</strong>
+                <span>Hygienic culinary kitchens locking in authentic flavor and nutrition.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 2: COMPANY HISTORY (COMPULSORY SECTION 2)
+         ====================================================================== -->
+    <section id="company-history" class="section-block section-bg-ice reveal-on-scroll" aria-labelledby="company-history-heading">
+      <div class="container">
+        <div class="about-split-wrap mb-5">
+          <!-- Visual Column (Stacked Top on Tablet/Mobile) -->
+          <div class="quality-visual-frame">
+            <img src="assets/images/about-history.jpg" alt="Artisan hands rolling traditional paratha dough and crafting samosas with aromatic kitchen spices" loading="lazy" width="800" height="600">
+            <div class="quality-visual-badge">
+              <i class="bi bi-hourglass-split fs-2" style="color: var(--lime-accent);"></i>
+              <div>
+                <strong>Heritage Meets Modern Science</strong>
+                <span>Traditional artisan techniques preserved with sub-zero freezing.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Narrative Intro Column -->
+          <div>
+            <span class="eyebrow-badge mb-2"><i class="bi bi-clock-history"></i> Company History</span>
+            <h2 id="company-history-heading" class="mb-3">FROM A FAMILY KITCHEN TO A NATIONWIDE PANTRY ESSENTIAL.</h2>
+            <p class="mb-3">
+              Our journey started with a cherished grandmother's recipe for flaky, ribbon-layered parathas. We refused to believe that convenient frozen food had to taste artificial or compromise on health.
+            </p>
+            <p class="mb-0">
+              Over the years, we combined authentic home-kitchen craftsmanship with Individual Quick Freezing (-40°C) and unbroken sub-zero cold-chain logistics—growing step by step into a pantry favourite across India.
+            </p>
+          </div>
+        </div>
+
+        <!-- Ascending Stepped "Our Journey" Staircase Layout -->
+        <div class="journey-stairs-card">
+          <div class="journey-stairs-header">
+            <div>
+              <span class="journey-sub-label">Milestones</span>
+              <h3 class="journey-heading mb-0">Our Journey</h3>
+            </div>
+            <div class="journey-trophy-pill" aria-hidden="true">
+              <i class="bi bi-trophy-fill"></i>
+              <span>50+ Products Milestone</span>
+            </div>
+          </div>
+
+          <div class="journey-stairs-grid">
+            <!-- Step 1: 2018 -->
+            <div class="journey-step journey-step--1">
+              <div class="journey-callout">
+                <span class="journey-year">2018</span>
+                <h4 class="journey-title">The Artisan Spark</h4>
+                <p class="journey-desc">Started as a local kitchen crafting hand-rolled flaky parathas &amp; crisp samosas.</p>
+              </div>
+              <div class="journey-pin" aria-hidden="true">
+                <span class="journey-dot"></span>
+                <span class="journey-stem"></span>
+              </div>
+              <div class="journey-block">
+                <span class="journey-block-num">01</span>
+                <span class="journey-block-tag">Start</span>
+              </div>
+            </div>
+
+            <!-- Step 2: 2020 -->
+            <div class="journey-step journey-step--2">
+              <div class="journey-callout">
+                <span class="journey-year">2020</span>
+                <h4 class="journey-title">IQF Tech Leap</h4>
+                <p class="journey-desc">Invested in -40°C Individual Quick Freezing tunnels to lock in nutrition &amp; crunch.</p>
+              </div>
+              <div class="journey-pin" aria-hidden="true">
+                <span class="journey-dot"></span>
+                <span class="journey-stem"></span>
+              </div>
+              <div class="journey-block">
+                <span class="journey-block-num">02</span>
+                <span class="journey-block-tag">Develop</span>
+              </div>
+            </div>
+
+            <!-- Step 3: 2023 -->
+            <div class="journey-step journey-step--3">
+              <div class="journey-callout">
+                <span class="journey-year">2023</span>
+                <h4 class="journey-title">Cold Chain Network</h4>
+                <p class="journey-desc">Launched monitored -18°C insulated transport from facility straight to retail freezers.</p>
+              </div>
+              <div class="journey-pin" aria-hidden="true">
+                <span class="journey-dot"></span>
+                <span class="journey-stem"></span>
+              </div>
+              <div class="journey-block">
+                <span class="journey-block-num">03</span>
+                <span class="journey-block-tag">Expand</span>
+              </div>
+            </div>
+
+            <!-- Step 4: 2026 -->
+            <div class="journey-step journey-step--4">
+              <div class="journey-callout">
+                <div class="journey-peak-trophy" aria-hidden="true">
+                  <i class="bi bi-trophy-fill"></i>
+                </div>
+                <span class="journey-year">2026</span>
+                <h4 class="journey-title">50+ Essentials</h4>
+                <p class="journey-desc">Grown into a full ready-to-cook range across snacks, parathas, veg &amp; proteins.</p>
+              </div>
+              <div class="journey-pin" aria-hidden="true">
+                <span class="journey-dot"></span>
+                <span class="journey-stem"></span>
+              </div>
+              <div class="journey-block">
+                <span class="journey-block-num">04</span>
+                <span class="journey-block-tag">Leadership</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3: COMPANY MISSION & VISION (COMPULSORY SECTION 3)
+         ====================================================================== -->
+    <section id="company-mission-vision" class="section-block section-bg-mint reveal-on-scroll" aria-labelledby="mission-vision-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto mb-5" style="max-width: 720px;">
+          <span class="eyebrow-badge mb-2"><i class="bi bi-compass"></i> Purpose &amp; Promise</span>
+          <h2 id="mission-vision-heading" class="mb-3">OUR MISSION &amp; VISION FOR EVERY HOME.</h2>
+          <p class="mb-0">
+            We are on a mission to redefine what frozen food means in India: not an emergency substitute, but the smartest, freshest, and most convenient mealtime choice for modern households.
+          </p>
+        </div>
+
+        <div class="mv-bento-grid">
+          <!-- Featured Panorama Card -->
+          <div class="mv-featured-banner">
+            <div class="mv-featured-media">
+              <img src="assets/images/about-mission.jpg" alt="Multigenerational Indian family smiling happily around a modern dining table sharing freshly cooked samosas and parathas" loading="lazy" width="800" height="600">
+              <div class="quality-visual-badge">
+                <i class="bi bi-heart-fill fs-2" style="color: var(--lime-accent);"></i>
+                <div>
+                  <strong>Bringing Families Together</strong>
+                  <span>Spend less time in meal prep, more time enjoying meals together.</span>
+                </div>
+              </div>
+            </div>
+            <div class="mv-featured-panel">
+              <span class="mv-panel-tag"><i class="bi bi-stars"></i> Our Core Commitment</span>
+              <h3>Wholesome Homestyle Meals, Ready in Minutes.</h3>
+              <p>
+                From busy weekday dinners to joyful weekend gatherings, FROZIO bridges convenience and authentic culinary craft so every family enjoys hot, freshly cooked flavours without kitchen stress.
+              </p>
+              <div class="mv-panel-metrics">
+                <div class="mv-metric-pill">
+                  <strong>0%</strong>
+                  <span>Artificial Preservatives</span>
+                </div>
+                <div class="mv-metric-pill">
+                  <strong>5–10 Min</strong>
+                  <span>Freezer to Table</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side-by-Side Equal-Height Mission & Vision Cards -->
+          <div class="mission-vision-container">
+            <!-- Mission Card -->
+            <div class="mission-card">
+              <div class="mv-header">
+                <div class="mv-header-left">
+                  <div class="mv-icon"><i class="bi bi-bullseye"></i></div>
+                  <h3 class="mv-title">Our Mission</h3>
+                </div>
+                <span class="mv-step-badge">01</span>
+              </div>
+              <p class="mv-text">
+                To eliminate daily meal-prep stress by delivering wholesome, restaurant-quality frozen foods that cook straight from the freezer in minutes, without sacrificing nutrition, authenticity, or family health.
+              </p>
+              <ul class="mv-checklist">
+                <li><i class="bi bi-check2-circle"></i> Cook only what you need—virtually zero food waste.</li>
+                <li><i class="bi bi-check2-circle"></i> Ready in 5 to 10 minutes on tawa, pan, or air-fryer.</li>
+                <li><i class="bi bi-check2-circle"></i> Locked-in vitamins with Individual Quick Freezing.</li>
+              </ul>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="vision-card">
+              <div class="mv-header">
+                <div class="mv-header-left">
+                  <div class="mv-icon"><i class="bi bi-eye-fill"></i></div>
+                  <h3 class="mv-title">Our Vision</h3>
+                </div>
+                <span class="mv-step-badge">02</span>
+              </div>
+              <p class="mv-text">
+                To become India’s most trusted household ready-to-cook brand, pioneering sustainable sub-zero logistics, responsible farming partnerships, and joyful family mealtimes in every home.
+              </p>
+              <ul class="mv-checklist">
+                <li><i class="bi bi-check2-circle"></i> Unbroken -18°C temperature safety guarantee.</li>
+                <li><i class="bi bi-check2-circle"></i> Airtight barrier packaging that prevents freezer burn.</li>
+                <li><i class="bi bi-check2-circle"></i> Premium gourmet food made accessible for every budget.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 4: CORE VALUES & QUALITY STANDARDS (ADDITIONAL SECTION)
+         ====================================================================== -->
+    <section id="company-values" class="section-block section-bg-white reveal-on-scroll" aria-labelledby="company-values-heading">
+      <div class="container">
+        <div class="about-split-wrap">
+          <!-- Visual Column (Stacked Top on Tablet/Mobile) -->
+          <div class="quality-visual-frame">
+            <img src="assets/images/about-values.jpg" alt="Vibrant green peas, sweet corn, broccoli florets and whole spices with crisp ice crystal lock in freshness" loading="lazy" width="800" height="600">
+            <div class="quality-visual-badge">
+              <i class="bi bi-snow fs-2" style="color: var(--lime-accent);"></i>
+              <div>
+                <strong>-18°C Controlled Freshness Lock</strong>
+                <span>Preserving authentic taste, texture and nutritional richness.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Core Values Content Column in 2x2 Grid -->
+          <div>
+            <span class="eyebrow-badge mb-2"><i class="bi bi-gem"></i> FROZIO Pillars</span>
+            <h2 id="company-values-heading" class="mb-3">FOUR CORE COMMITMENTS BEHIND EVERY PACK.</h2>
+            <p class="mb-4">
+              Our quality standards are uncompromising. From raw vegetable harvesting to your home freezer, every step is rigorously governed by our four founding pillars.
+            </p>
+
+            <div class="timeline-grid">
+              <div class="quality-feature-box">
+                <div class="quality-feature-icon" aria-hidden="true">
+                  <i class="bi bi-patch-check"></i>
+                </div>
+                <h4>100% Honest Ingredients</h4>
+                <p>Pure stone-ground wheat, hand-selected vegetables, and clean meats. Zero synthetic colors, zero MSG, and zero chemical preservatives.</p>
+              </div>
+
+              <div class="quality-feature-box">
+                <div class="quality-feature-icon" aria-hidden="true">
+                  <i class="bi bi-snow2"></i>
+                </div>
+                <h4>IQF Flash Freezing</h4>
+                <p>Individual Quick Freezing locks food at -40°C in minutes, preserving cell structure so textures remain crisp and never soggy upon heating.</p>
+              </div>
+
+              <div class="quality-feature-box">
+                <div class="quality-feature-icon" aria-hidden="true">
+                  <i class="bi bi-truck"></i>
+                </div>
+                <h4>Monitored Cold Chain</h4>
+                <p>Our insulated delivery fleet is temperature-monitored 24/7 to ensure zero transit thawing or mid-delivery temperature fluctuations.</p>
+              </div>
+
+              <div class="quality-feature-box">
+                <div class="quality-feature-icon" aria-hidden="true">
+                  <i class="bi bi-lightning-charge"></i>
+                </div>
+                <h4>Effortless Zero Prep</h4>
+                <p>Skip washing, chopping, and dough kneading. Cook straight from frozen to table in minutes with maximum flavor and minimal kitchen mess.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 5: CALL TO ACTION BANNER
+         ====================================================================== -->
+    <section class="section-block section-bg-mint" aria-labelledby="about-cta-heading">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <span class="eyebrow-badge">Experience The Difference</span>
+            <h2 id="about-cta-heading" class="mb-2">READY TO TASTE EFFORTLESS HOMESTYLE PERFECTION?</h2>
+            <p class="mb-0">
+              Browse our complete retail collection of crispy snacks, flaky parathas, vegetables, and proteins, or get in touch for bulk and store orders.
+            </p>
+          </div>
+          <div class="col-lg-4 d-flex flex-wrap gap-3 justify-content-lg-end">
+            <a href="products.html" class="btn-brand-secondary">
+              Browse Products
+            </a>
+            <a href="contact.html" class="btn-brand-primary">
+              Send An Enquiry
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       GLOBAL FOOTER
+       ======================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Brand Column -->
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="brand-logo mb-3">
+            <span class="brand-logo-mark" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20M5 7l5 5-5 5M19 7l-5 5 5 5"/>
+              </svg>
+            </span>
+            <span class="brand-logo-text">
+              <span class="brand-logo-title">FROZIO</span>
+            </span>
+          </a>
+          <p class="small mb-3" style="max-width: 340px;">
+            Delicious meals, made easier with quality frozen favourites. Explore our retail collection of crispy snacks, flaky parathas, flash-frozen vegetables and non-vegetarian essentials.
+          </p>
+          <div class="contact-social-links" aria-label="Social Media Links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook" title="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="WhatsApp" title="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="YouTube" title="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="X (Twitter)" title="X (Twitter)">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links (With About Us) -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="storage-delivery.html">Storage &amp; Delivery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Product Categories -->
+        <div class="col-lg-3 col-md-6 col-6">
+          <h3 class="footer-title">Product Categories</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=Snacks">Frozen Snacks</a></li>
+            <li><a href="products.html?category=Parathas">Parathas</a></li>
+            <li><a href="products.html?category=Vegetarian">Vegetarian</a></li>
+            <li><a href="products.html?category=Non-Vegetarian">Non-Vegetarian</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Support -->
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">Customer Support</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html?prefill=cart">Product Enquiries</a></li>
+            <li><a href="storage-delivery.html#delivery-info">Delivery Information</a></li>
+            <li><a href="storage-delivery.html#storage-guidance">Storage Guidance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 FROZIO. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="storage-delivery.html#faq-section">Privacy Policy (Placeholder)</a>
+          <a href="storage-delivery.html#faq-section">Terms of Use (Placeholder)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Back to Top">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- Main Application Script -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
